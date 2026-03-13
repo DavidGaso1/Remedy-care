@@ -75,7 +75,7 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
             <ThemeToggle />
             <Link
               href="/admin/login"
-              className="hidden sm:flex items-center gap-2 bg-slate-700 dark:bg-slate-600 text-white text-xs sm:text-sm font-medium px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl hover:bg-slate-800 dark:hover:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+              className="flex items-center gap-2 bg-slate-700 dark:bg-slate-600 text-white text-xs font-medium px-3 py-2 rounded-xl hover:bg-slate-800 dark:hover:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Admin
             </Link>
