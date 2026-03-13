@@ -17,7 +17,6 @@ const PROTECTED_API_PATHS = [
   "/api/messages",
 ];
 
-const ADMIN_LOGIN_ACCESS_KEY = process.env.ADMIN_LOGIN_ACCESS_KEY;
 
 // Public API routes (accessible without auth — used by frontend checkout)
 // POST /api/orders is public (customers place orders)
@@ -104,11 +103,6 @@ export async function middleware(request: NextRequest) {
   if (isAdminLogin) {
     if (hasValidSession) {
       return NextResponse.redirect(new URL("/admin/dashboard", request.url));
-    }
-
-    const isDev = process.env.NODE_ENV !== "production";
-    if (!isDev && (!ADMIN_LOGIN_ACCESS_KEY || accessKey !== ADMIN_LOGIN_ACCESS_KEY)) {
-      return NextResponse.redirect(new URL("/", request.url));
     }
 
     return NextResponse.next();
