@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Leaf } from "lucide-react";
+import { Phone, Leaf } from "lucide-react";
 import type { SiteSettings } from "@/lib/db";
 
 const navLinks = [
