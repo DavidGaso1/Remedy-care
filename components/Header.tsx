@@ -18,7 +18,6 @@ const navLinks = [
 import { ThemeToggle } from "./ThemeToggle";
 
 export default function Header({ settings }: { settings?: SiteSettings }) {
-  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const siteName = settings?.site_name || "Advanced Natural Remedy";
@@ -54,27 +53,29 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative text-sm font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:text-primary hover:bg-primary-50 dark:hover:bg-primary/10 ${
-                  scrolled ? "text-slate-600 dark:text-slate-300" : "text-white/90"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          {/* Horizontal Scrolling Nav */}
+          <nav className="flex-1 mx-4 overflow-x-auto scrollbar-hide">
+            <div className="flex items-center gap-1 min-w-max">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative text-sm font-medium px-3 py-2 rounded-lg transition-all duration-300 hover:text-primary hover:bg-primary-50 dark:hover:bg-primary/10 whitespace-nowrap ${
+                    scrolled ? "text-slate-600 dark:text-slate-300" : "text-white/90"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </nav>
 
           {/* CTA & ThemeToggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <ThemeToggle />
             <Link
               href="/admin/login"
-              className="hidden lg:flex items-center gap-2 bg-slate-700 dark:bg-slate-600 text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-slate-800 dark:hover:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+              className="hidden sm:flex items-center gap-2 bg-slate-700 dark:bg-slate-600 text-white text-xs sm:text-sm font-medium px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl hover:bg-slate-800 dark:hover:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
             >
               Admin
             </Link>
@@ -82,58 +83,15 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:flex items-center gap-2 bg-[#25D366] text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-[#1ebe5d] shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 transition-all duration-300 hover:-translate-y-0.5"
+              className="hidden sm:flex items-center gap-2 bg-[#25D366] text-white text-xs sm:text-sm font-bold px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl hover:bg-[#1ebe5d] shadow-md shadow-[#25D366]/20 hover:shadow-lg hover:shadow-[#25D366]/30 transition-all duration-300 hover:-translate-y-0.5"
             >
               <Phone size={14} />
-              Consult Now
+              <span className="hidden md:inline">Consult Now</span>
             </a>
-
-            {/* Mobile Menu */}
-            <button
-              className={`lg:hidden p-2 rounded-xl transition-colors ${
-                scrolled ? "text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary-50 dark:hover:bg-primary/10" : "text-white hover:bg-white/10"
-              }`}
-              onClick={() => setOpen(!open)}
-            >
-              {open ? <X size={24} /> : <Menu size={24} />}
-            </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Nav Dropdown */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="bg-white/98 dark:bg-[#0d2010]/98 backdrop-blur-xl border-t border-primary/10 px-4 py-4 space-y-1 shadow-lg">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block py-2.5 px-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary hover:bg-primary-50 dark:hover:bg-primary/10 rounded-xl transition-all"
-              onClick={() => setOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            href="/admin/login"
-            className="block py-2.5 px-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary hover:bg-primary-50 dark:hover:bg-primary/10 rounded-xl transition-all"
-            onClick={() => setOpen(false)}
-          >
-            Admin Login
-          </Link>
-          <a
-            href={whatsappUrl}
-            className="flex items-center gap-2 bg-[#25D366] text-white text-sm font-bold px-4 py-3 rounded-xl justify-center mt-3 shadow-md"
-          >
-            <Phone size={14} />
-            Free WhatsApp Consultation
-          </a>
-        </div>
-      </div>
     </header>
   );
 }

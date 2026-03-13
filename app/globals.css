@@ -162,4 +162,14 @@
   .nature-text-shadow {
     text-shadow: 0 2px 20px rgba(0,0,0,0.4);
   }
+
+  /* Hide scrollbar for horizontal navigation */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
