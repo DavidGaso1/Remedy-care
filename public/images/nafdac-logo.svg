@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- Outer green ring -->
+  <circle cx="200" cy="200" r="185" fill="#ffffff" stroke="#16a34a" stroke-width="16" />
+  <!-- Inner gold ring -->
+  <circle cx="200" cy="200" r="165" fill="#f0fdf4" stroke="#eab308" stroke-width="4" />
+  
+  <!-- Shield Icon -->
+  <path d="M 200 100 L 270 125 L 270 200 C 270 260 200 310 200 310 C 200 310 130 260 130 200 L 130 125 Z" fill="#16a34a" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"/>
+  <!-- Checkmark -->
+  <path d="M 165 200 L 190 225 L 240 160" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Text -->
+  <text x="200" y="75" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="48" fill="#16a34a" text-anchor="middle" letter-spacing="4">NAFDAC</text>
+  
+  <text x="200" y="355" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="32" fill="#15803d" text-anchor="middle" letter-spacing="4">APPROVED</text>
+  
+  <!-- Decorative stars -->
+  <polygon points="90,205 95,220 110,220 98,230 102,245 90,235 78,245 82,230 70,220 85,220" fill="#eab308" />
+  <polygon points="310,205 315,220 330,220 318,230 322,245 310,235 298,245 302,230 290,220 305,220" fill="#eab308" />
+</svg>
