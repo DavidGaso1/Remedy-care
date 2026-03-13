@@ -72,6 +72,12 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
           {/* CTA & ThemeToggle */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
+            <Link
+              href="/admin/login"
+              className="hidden lg:flex items-center gap-2 bg-slate-700 dark:bg-slate-600 text-white text-sm font-medium px-4 py-2.5 rounded-xl hover:bg-slate-800 dark:hover:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Admin
+            </Link>
             <a
               href={whatsappUrl}
               target="_blank"
@@ -112,6 +118,13 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/admin/login"
+            className="block py-2.5 px-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary hover:bg-primary-50 dark:hover:bg-primary/10 rounded-xl transition-all"
+            onClick={() => setOpen(false)}
+          >
+            Admin Login
+          </Link>
           <a
             href={whatsappUrl}
             className="flex items-center gap-2 bg-[#25D366] text-white text-sm font-bold px-4 py-3 rounded-xl justify-center mt-3 shadow-md"

@@ -174,6 +174,20 @@ export default function CheckoutModal({
                                     value={formData.address}
                                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                                 ></textarea>
+                                
+                                {/* Payment Notice for Unconfirmed Locations */}
+                                <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-500/20 rounded-xl">
+                                    <div className="flex items-start gap-2.5">
+                                        <AlertCircle size={16} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+                                        <div className="text-xs text-blue-800 dark:text-blue-300">
+                                            <p className="font-semibold mb-1">Important Notice</p>
+                                            <p className="leading-relaxed">
+                                                For locations outside our confirmed delivery zones, payment may be required before delivery. 
+                                                Our team will contact you to confirm your location and payment details after you submit this order.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="grid grid-cols-2 gap-4">
