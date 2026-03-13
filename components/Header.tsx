@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/joint-pain", label: "Joint Pain" },
   { href: "/blood-pressure", label: "Blood Pressure" },
   { href: "/ulcer", label: "Ulcer Relief" },
+  { href: "/about", label: "About" },
 ];
 
 import { ThemeToggle } from "./ThemeToggle";
@@ -21,7 +22,7 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
   const [scrolled, setScrolled] = useState(false);
 
   const siteName = settings?.site_name || "Advanced Natural Remedy";
-  const whatsappNumber = settings?.whatsapp_number?.replace(/\D/g, "") || "2349061505041";
+  const whatsappNumber = settings?.whatsapp_number?.replace(/\D/g, "") || "2348140874503";
   const consultationMessage = settings?.consultation_message || "Hello I need a consultation";
 
   useEffect(() => {

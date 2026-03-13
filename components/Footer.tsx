@@ -4,7 +4,7 @@ import type { SiteSettings } from "@/lib/db";
 
 export default function Footer({ settings }: { settings?: SiteSettings }) {
   const siteName = settings?.site_name || "Advanced Natural Remedy";
-  const whatsappNumber = settings?.whatsapp_number || "+234 906 150 5041";
+  const whatsappNumber = settings?.whatsapp_number || "+234 814 087 4503";
 
   return (
     <footer className="relative text-white overflow-hidden" style={{ background: "linear-gradient(160deg, #0d2010 0%, #1b4332 60%, #0d2010 100%)" }}>
@@ -48,6 +48,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 { href: "/joint-pain", label: "Joint Pain & Arthritis" },
                 { href: "/blood-pressure", label: "Blood Pressure" },
                 { href: "/ulcer", label: "Ulcer Relief" },
+                { href: "/about", label: "About Us" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="hover:text-primary-light transition-colors duration-300 flex items-center gap-2">
@@ -62,7 +63,18 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
           <div>
             <h4 className="font-bold mb-4 text-accent-light text-sm uppercase tracking-wider">Contact Us</h4>
             <div className="space-y-3 text-sm text-slate-400">
-              <p className="flex items-center gap-2"><Phone size={16} className="text-primary-light" /> WhatsApp: {whatsappNumber}</p>
+              <div>
+                <p className="font-semibold text-slate-300 mb-1">Address:</p>
+                <p className="flex items-start gap-2">
+                  <span className="text-primary-light mt-0.5">📍</span>
+                  Ide Plaza Utako, Ajose Adeogun Street, Abuja
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-300 mb-1">Phone:</p>
+                <p className="flex items-center gap-2"><Phone size={16} className="text-primary-light" /> 08140874503</p>
+                <p className="flex items-center gap-2"><Phone size={16} className="text-primary-light" /> 08168750888</p>
+              </div>
               <p className="flex items-center gap-2"><Clock size={16} className="text-primary-light" /> Available 24/7</p>
               <p className="flex items-center gap-2"><Truck size={16} className="text-primary-light" /> Free delivery nationwide</p>
               <p className="flex items-center gap-2"><CreditCard size={16} className="text-primary-light" /> Payment on delivery</p>

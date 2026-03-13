@@ -54,7 +54,7 @@ db.exec(`
     site_name TEXT DEFAULT 'Advanced Natural Remedy',
     site_description TEXT DEFAULT 'Science-backed natural solutions',
     currency TEXT DEFAULT 'NGN',
-    whatsapp_number TEXT DEFAULT '+2349061505041',
+    whatsapp_number TEXT DEFAULT '+2348140874503',
     default_message TEXT DEFAULT 'Hello Dr I want to order {product}',
     consultation_message TEXT DEFAULT 'Hello I need a consultation',
     new_order_notifications INTEGER DEFAULT 1,
