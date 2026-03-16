@@ -5,6 +5,18 @@ import { LayoutDashboard, Package, MessageSquare, Settings, X, Menu, LogOut } fr
 import { useState, useEffect, useRef } from "react";
 import { Toaster, toast } from 'react-hot-toast';
 
+// Converts a base64url string to ArrayBuffer for web push subscription
+function urlBase64ToUint8Array(base64String: string): ArrayBuffer {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const rawData = window.atob(base64);
+  const outputArray = new Uint8Array(rawData.length);
+  for (let i = 0; i < rawData.length; ++i) {
+    outputArray[i] = rawData.charCodeAt(i);
+  }
+  return outputArray.buffer as ArrayBuffer;
+}
+
 const navItems = [
   { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/products", label: "Products", icon: Package },
@@ -28,6 +40,51 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       console.error("Logout failed:", error);
     }
   };
+
+  // Register service worker and subscribe to push notifications
+  useEffect(() => {
+    if (pathname === "/admin/login") return;
+    if (!("serviceWorker" in navigator) || !("PushManager" in window)) return;
+
+    const subscribeToPush = async () => {
+      try {
+        // Get VAPID public key from server
+        const keyRes = await fetch("/api/push/vapid-public-key");
+        if (!keyRes.ok) return;
+        const { publicKey } = await keyRes.json();
+
+        // Register service worker
+        const registration = await navigator.serviceWorker.register("/sw.js");
+        await navigator.serviceWorker.ready;
+
+        // Check current permission
+        const permission = await Notification.requestPermission();
+        if (permission !== "granted") return;
+
+        // Check if already subscribed
+        let subscription = await registration.pushManager.getSubscription();
+
+        // Subscribe if not yet subscribed
+        if (!subscription) {
+          subscription = await registration.pushManager.subscribe({
+            userVisibleOnly: true,
+            applicationServerKey: urlBase64ToUint8Array(publicKey),
+          });
+        }
+
+        // Send subscription to server
+        await fetch("/api/push/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ subscription }),
+        });
+      } catch (err) {
+        console.error("Push subscription error:", err);
+      }
+    };
+
+    subscribeToPush();
+  }, [pathname]);
 
   useEffect(() => {
     // Don't poll on login page

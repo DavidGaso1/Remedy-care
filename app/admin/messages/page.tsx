@@ -70,6 +70,14 @@ export default function MessagesPage() {
     }
   };
 
+  const parseUtcDate = (dateString: string) => {
+    if (!dateString) return null;
+    const normalized = dateString.includes("T") ? dateString : dateString.replace(" ", "T");
+    const withTimezone = /Z$/i.test(normalized) ? normalized : `${normalized}Z`;
+    const timestamp = Date.parse(withTimezone);
+    return Number.isNaN(timestamp) ? null : new Date(timestamp);
+  };
+
   const filteredMessages = messages.filter((msg) => {
     const matchesFilter = filter === "all" || msg.status === filter;
     const matchesSearch =
@@ -78,18 +86,33 @@ export default function MessagesPage() {
     return matchesFilter && matchesSearch;
   });
 
-  const formatDate = (dateString: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
+  const getRelativeTime = (dateString: string) => {
+    const date = parseUtcDate(dateString);
+    if (!date) return "";
     const now = new Date();
-    const diff = now.getTime() - date.getTime();
-    const minutes = Math.floor(diff / 60000);
-    const hours = Math.floor(diff / 3600000);
-    const days = Math.floor(diff / 86400000);
+    const diffSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+    const minutes = Math.floor(diffSeconds / 60);
+    const hours = Math.floor(diffSeconds / 3600);
+    const days = Math.floor(diffSeconds / 86400);
 
+    if (diffSeconds < 5) return "just now";
+    if (diffSeconds < 60) return `${diffSeconds}s ago`;
     if (minutes < 60) return `${minutes}m ago`;
     if (hours < 24) return `${hours}h ago`;
     return `${days}d ago`;
+  };
+
+  const formatFullDate = (dateString: string) => {
+    const date = parseUtcDate(dateString);
+    if (!date) return "";
+    return date.toLocaleString('en-NG', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
   };
 
   const getStatusColor = (status: string) => {
@@ -176,7 +199,8 @@ export default function MessagesPage() {
                   <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getStatusColor(msg.status)}`}>
                     {msg.status.charAt(0).toUpperCase() + msg.status.slice(1)}
                   </span>
-                  <span className="text-xs text-slate-500">{formatDate(msg.date)}</span>
+                  <span className="text-[10px] text-slate-400 font-normal ml-1">({formatFullDate(msg.date)})</span>
+                  <span className="text-xs text-slate-500">{getRelativeTime(msg.date)}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500 mb-3">
                   <span className="flex items-center gap-1">

@@ -70,18 +70,42 @@ export default function DashboardPage() {
     init();
   }, []);
 
-  const formatDate = (dateString: string) => {
+  const getRelativeTime = (dateString: string) => {
     if (!dateString) return "";
-    const date = new Date(dateString);
+    const normalized = dateString.includes("T") ? dateString : dateString.replace(" ", "T");
+    const withTimezone = /Z$/i.test(normalized) ? normalized : `${normalized}Z`;
+    const date = new Date(withTimezone);
+    if (Number.isNaN(date.getTime())) return "";
+    
     const now = new Date();
     const diff = now.getTime() - date.getTime();
+    const diffSeconds = Math.floor(diff / 1000);
     const minutes = Math.floor(diff / 60000);
     const hours = Math.floor(diff / 3600000);
     const days = Math.floor(diff / 86400000);
 
+    if (diffSeconds < 5) return "just now";
+    if (diffSeconds < 60) return `${diffSeconds}s ago`;
     if (minutes < 60) return `${minutes} min${minutes !== 1 ? 's' : ''} ago`;
     if (hours < 24) return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
     return `${days} day${days !== 1 ? 's' : ''} ago`;
+  };
+
+  const formatFullDate = (dateString: string) => {
+    if (!dateString) return "";
+    const normalized = dateString.includes("T") ? dateString : dateString.replace(" ", "T");
+    const withTimezone = /Z$/i.test(normalized) ? normalized : `${normalized}Z`;
+    const date = new Date(withTimezone);
+    if (Number.isNaN(date.getTime())) return "";
+    
+    return date.toLocaleString('en-NG', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    });
   };
 
   const getStatusColor = (status: string) => {
@@ -240,7 +264,9 @@ export default function DashboardPage() {
                       </button>
                     </div>
                   </td>
-                  <td className="px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-500">{formatDate(order.date)}</td>
+                  <td className="px-4 sm:px-6 py-3 sm:py-4 text-xs sm:text-sm text-slate-500" title={formatFullDate(order.date)}>
+                    {getRelativeTime(order.date)}
+                  </td>
                 </tr>
               ))}
             </tbody>

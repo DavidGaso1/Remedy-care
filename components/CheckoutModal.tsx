@@ -56,23 +56,23 @@ export default function CheckoutModal({
         setError("");
 
         try {
-            const message = `New order request\n\nProduct: ${productName}\nPack: ${packLabel} (${packBottles} bottle${packBottles > 1 ? "s" : ""})\nPrice: ₦${packPrice.toLocaleString()}\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}\nDelivery Date: ${formData.deliveryDate}\nPayment Method: ${formData.paymentOption}`;
-
-            const res = await fetch("/api/messages", {
+            const res = await fetch("/api/orders", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    name: formData.name,
+                    customer: formData.name,
                     phone: formData.phone,
-                    email: "",
                     product: `${productName} - ${packLabel}`,
-                    message,
-                    status: "new",
+                    amount: packPrice,
+                    address: formData.address,
+                    delivery_date: formData.deliveryDate,
+                    payment_option: formData.paymentOption,
                 }),
             });
 
             if (!res.ok) {
-                throw new Error("Failed to process order.");
+                const errorData = await res.json();
+                throw new Error(errorData.error || "Failed to process order.");
             }
 
             setSubmitted(true);

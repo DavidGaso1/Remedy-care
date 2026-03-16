@@ -14,7 +14,6 @@ const PROTECTED_API_PATHS = [
   "/api/stats",
   "/api/settings",
   "/api/products",
-  "/api/messages",
 ];
 
 
@@ -123,7 +122,16 @@ export async function middleware(request: NextRequest) {
   const isOrdersReadOrUpdate =
     isOrdersApi && (request.method === "GET" || request.method === "PUT");
 
-  const needsAuth = isProtectedPage || isProtectedApi || isOrdersReadOrUpdate;
+  // Special handling for /api/messages — allow public POST submissions, protect reads/updates
+  const isMessagesApi = pathname.startsWith("/api/messages");
+  const isMessagesReadOrUpdate =
+    isMessagesApi && request.method !== "POST";
+
+  const needsAuth =
+    isProtectedPage ||
+    isProtectedApi ||
+    isOrdersReadOrUpdate ||
+    isMessagesReadOrUpdate;
 
   if (!needsAuth) {
     return NextResponse.next();
@@ -131,7 +139,7 @@ export async function middleware(request: NextRequest) {
 
   if (!hasValidSession) {
     // For API routes, return 401
-    if (isProtectedApi || isOrdersReadOrUpdate) {
+    if (isProtectedApi || isOrdersReadOrUpdate || isMessagesReadOrUpdate) {
       return NextResponse.json(
         { error: "Unauthorized" },
         { status: 401 }

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { validateCsrfToken } from "@/lib/csrf";
 import { getClientIP } from "@/lib/ip";
+import { sendPushToAllAdmins } from "@/lib/push";
 
 const VALID_ORDER_STATUSES = ["pending", "processing", "delivered", "cancelled"];
 
@@ -89,6 +90,21 @@ export async function POST(request: Request) {
       INSERT INTO orders (order_id, customer, phone, product, amount, address, delivery_date, payment_option, status)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).run(orderId, sanitizedCustomer, sanitizedPhone, sanitizedProduct, amount, sanitizedAddress, sanitizedDeliveryDate, sanitizedPaymentOption, status);
+
+    // Also insert into messages table so admin sees it in the message section
+    const messageContent = `New Order Placed: ${orderId}\nAddress: ${sanitizedAddress || 'N/A'}\nDelivery Date: ${sanitizedDeliveryDate || 'N/A'}\nPayment Option: ${sanitizedPaymentOption || 'N/A'}\nAmount: ₦${amount}`;
+    db.prepare(`
+      INSERT INTO messages (name, phone, email, product, message, status)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `).run(sanitizedCustomer, sanitizedPhone, null, sanitizedProduct, messageContent, 'new');
+
+    // Send browser push notification to all subscribed admin devices
+    sendPushToAllAdmins({
+      title: `🛒 New Order: ${orderId}`,
+      body: `${sanitizedCustomer} ordered ${sanitizedProduct} — ₦${amount.toLocaleString()}`,
+      tag: `order-${orderId}`,
+      url: '/admin/dashboard',
+    }).catch((err) => console.error('Push notification failed:', err));
 
     return NextResponse.json({
       id: result.lastInsertRowid,
