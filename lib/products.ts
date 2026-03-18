@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = "2349061505041";
+export const WHATSAPP_NUMBER = "2348140874503";
 
 export function getWhatsAppLink(productName: string): string {
   const message = `Hello Dr I've Read And I Want To Place Order For Your ${productName} Treatment Pack!`;

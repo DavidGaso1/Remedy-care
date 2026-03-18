@@ -27,10 +27,10 @@ export default function SettingsPage() {
   const [saved, setSaved] = useState(false);
   const [loading, setLoading] = useState(true);
   const [settings, setSettings] = useState<Settings>({
-    site_name: "Advanced Natural Remedy",
+    site_name: "Tubon's Care",
     site_description: "Science-backed natural solutions for your health challenges",
     currency: "NGN",
-    whatsapp_number: "+2349061505041",
+    whatsapp_number: "+2348140874503",
     default_message: "Hello Dr I've Read And I Want To Place Order For Your {product} Treatment Pack!",
     consultation_message: "Hello I need a free consultation",
     new_order_notifications: 1,

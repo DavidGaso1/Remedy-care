@@ -51,7 +51,7 @@ db.exec(`
 
   CREATE TABLE IF NOT EXISTS settings (
     id INTEGER PRIMARY KEY CHECK (id = 1),
-    site_name TEXT DEFAULT 'Advanced Natural Remedy',
+    site_name TEXT DEFAULT 'Tubon''s Care',
     site_description TEXT DEFAULT 'Science-backed natural solutions',
     currency TEXT DEFAULT 'NGN',
     whatsapp_number TEXT DEFAULT '+2348140874503',

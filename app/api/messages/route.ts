@@ -85,6 +85,24 @@ export async function POST(request: Request) {
       VALUES (?, ?, ?, ?, ?, ?)
     `).run(sanitizedName, sanitizedPhone, sanitizedEmail, sanitizedProduct, sanitizedMessage, status);
 
+    // Send to n8n webhook
+    try {
+      await fetch("https://n8n.simeonsamari.com/webhook-test/tubonscare", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "message",
+          name: sanitizedName,
+          phone: sanitizedPhone,
+          email: sanitizedEmail,
+          product: sanitizedProduct,
+          message: sanitizedMessage,
+        })
+      });
+    } catch (err) {
+      console.error("Webhook failed:", err);
+    }
+
     return NextResponse.json({
       id: result.lastInsertRowid,
       name: sanitizedName,

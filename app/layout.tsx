@@ -6,7 +6,7 @@ import { getSettings } from "@/lib/db";
 import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
-  title: "Advanced Natural Remedy | Science-Backed Herbal Solutions",
+  title: "Tubon's Care | Science-Backed Herbal Solutions",
   description: "Natural herbal solutions for ED, Prostate, Diabetes, Infections, Joint Pain & Blood Pressure. NAFDAC approved. Pay on delivery across Nigeria.",
   keywords: "natural remedy Nigeria, herbal medicine, ED treatment, prostate health, diabetes cure, NAFDAC approved",
 };

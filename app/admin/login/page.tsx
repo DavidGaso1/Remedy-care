@@ -63,7 +63,7 @@ function AdminLoginContent() {
             Admin Panel
           </h1>
           <p className="text-white/50 text-sm mt-1">
-            Advanced Natural Remedy
+            Tubon's Care
           </p>
         </div>
 

@@ -13,7 +13,7 @@ const nextConfig = {
       isProd
         ? "script-src 'self' 'unsafe-inline'"
         : "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-      "style-src 'self' 'unsafe-inline'", // unsafe-inline needed for Tailwind
+      "style-src 'self' 'unsafe-inline' fonts.googleapis.com cdn.jsdelivr.net", // unsafe-inline needed for Tailwind
       "img-src 'self' data: https: blob:",
       "font-src 'self' data:",
       "connect-src 'self' https: wss:",

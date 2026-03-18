@@ -130,7 +130,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animation-delay-600">
             <a
-              href="https://api.whatsapp.com/send?phone=2349061505041&text=Hello%20I%20need%20a%20free%20consultation"
+              href="https://api.whatsapp.com/send?phone=2348140874503&text=Hello%20I%20need%20a%20free%20consultation"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-all duration-300 hover:-translate-y-0.5"
@@ -279,7 +279,7 @@ export default function HomePage() {
             Get a free consultation on WhatsApp. We&apos;ll recommend the right product for your condition.
           </p>
           <a
-            href="https://api.whatsapp.com/send?phone=2349061505041&text=Hello%20I%20want%20a%20free%20consultation"
+            href="https://api.whatsapp.com/send?phone=2348140874503&text=Hello%20I%20want%20a%20free%20consultation"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-primary font-bold px-10 py-5 rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"

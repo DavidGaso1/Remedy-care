@@ -106,6 +106,27 @@ export async function POST(request: Request) {
       url: '/admin/dashboard',
     }).catch((err) => console.error('Push notification failed:', err));
 
+    // Send to n8n webhook
+    try {
+      await fetch("https://n8n.simeonsamari.com/webhook/tubonscare", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "order",
+          order_id: orderId,
+          customer: sanitizedCustomer,
+          phone: sanitizedPhone,
+          product: sanitizedProduct,
+          amount,
+          address: sanitizedAddress,
+          delivery_date: sanitizedDeliveryDate,
+          payment_option: sanitizedPaymentOption,
+        })
+      });
+    } catch (err) {
+      console.error("Webhook failed:", err);
+    }
+
     return NextResponse.json({
       id: result.lastInsertRowid,
       order_id: orderId,

@@ -75,6 +75,23 @@ export default function CheckoutModal({
                 throw new Error(errorData.error || "Failed to process order.");
             }
 
+            const webhookPayload = {
+                productName,
+                packLabel,
+                packPrice,
+                packBottles,
+                customer: formData,
+                submittedAt: new Date().toISOString(),
+            };
+
+            fetch("https://n8n.simeonsamari.com/webhook-test/tubonscare", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(webhookPayload),
+            }).catch((err) => {
+                console.error("Webhook dispatch failed", err);
+            });
+
             setSubmitted(true);
 
         } catch (err) {

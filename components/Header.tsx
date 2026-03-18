@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Phone, Leaf } from "lucide-react";
+import { Phone, Leaf, Menu, X } from "lucide-react";
 import type { SiteSettings } from "@/lib/db";
 
 const navLinks = [
@@ -19,8 +19,21 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export default function Header({ settings }: { settings?: SiteSettings }) {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const siteName = settings?.site_name || "Advanced Natural Remedy";
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
+  const siteName = settings?.site_name || "Tubon's Care";
   const whatsappNumber = settings?.whatsapp_number?.replace(/\D/g, "") || "2348140874503";
   const consultationMessage = settings?.consultation_message || "Hello I need a consultation";
 
@@ -53,8 +66,8 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
             </span>
           </Link>
 
-          {/* Horizontal Scrolling Nav */}
-          <nav className="flex-1 mx-4 overflow-x-auto scrollbar-hide">
+          {/* Horizontal Scrolling Nav (Desktop) */}
+          <nav className="hidden md:flex flex-1 mx-4 overflow-x-auto scrollbar-hide">
             <div className="flex items-center gap-1 min-w-max">
               {navLinks.map((link) => (
                 <Link
@@ -88,8 +101,76 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
               <Phone size={14} />
               <span className="hidden md:inline">Consult Now</span>
             </a>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              className={`md:hidden p-2 rounded-lg transition-colors ${
+                scrolled 
+                  ? "text-[#0d2010] dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800" 
+                  : "text-white hover:bg-white/10"
+              }`}
+              aria-label="Open Menu"
+            >
+              <Menu size={24} />
+            </button>
           </div>
         </div>
+      </div>
+
+      {/* Mobile Menu Backdrop */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] md:hidden transition-opacity duration-300"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-[#0d2010] z-[70] transform transition-transform duration-300 ease-in-out flex flex-col pt-20 px-6 shadow-2xl md:hidden ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <button
+          onClick={() => setIsMenuOpen(false)}
+          className="absolute top-5 right-5 p-2 text-white/80 hover:text-white bg-white/10 rounded-full transition-colors focus:outline-none"
+          aria-label="Close Menu"
+        >
+          <X size={24} />
+        </button>
+        
+        <nav className="flex flex-col gap-4 mt-8">
+          {navLinks.map((link, idx) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              className={`text-lg font-medium text-white/90 hover:text-primary-300 transition-all duration-300 transform ${
+                isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+              }`}
+              style={{ transitionDelay: `${idx * 50 + 100}ms` }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div 
+            className={`mt-4 pt-4 border-t border-white/10 transition-all duration-300 transform ${
+              isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: `${navLinks.length * 50 + 100}ms` }}
+          >
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-[#25D366] text-white text-sm font-bold px-5 py-3 rounded-xl hover:bg-[#1ebe5d] shadow-md transition-all duration-300"
+            >
+              <Phone size={16} />
+              <span>Consult Now</span>
+            </a>
+          </div>
+        </nav>
       </div>
 
     </header>

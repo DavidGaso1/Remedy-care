@@ -3,7 +3,7 @@ import { Leaf, Phone, Clock, Truck, CreditCard, CheckCircle } from "lucide-react
 import type { SiteSettings } from "@/lib/db";
 
 export default function Footer({ settings }: { settings?: SiteSettings }) {
-  const siteName = settings?.site_name || "Advanced Natural Remedy";
+  const siteName = settings?.site_name || "Tubon's Care";
 
   return (
     <footer className="relative text-white overflow-hidden" style={{ background: "linear-gradient(160deg, #0d2010 0%, #1b4332 60%, #0d2010 100%)" }}>
