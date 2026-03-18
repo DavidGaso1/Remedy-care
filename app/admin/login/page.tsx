@@ -63,7 +63,7 @@ function AdminLoginContent() {
             Admin Panel
           </h1>
           <p className="text-white/50 text-sm mt-1">
-            Tubon's Care
+            Tubon&apos;s Care
           </p>
         </div>
 

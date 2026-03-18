@@ -21,7 +21,7 @@ export default function AboutPage() {
           </h1>
           
           <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            Tubon's Care is dedicated to providing science-backed, NAFDAC-approved natural solutions 
+            Tubon&apos;s Care is dedicated to providing science-backed, NAFDAC-approved natural solutions 
             for your health challenges. We combine traditional herbal wisdom with modern research to deliver 
             effective, safe remedies.
           </p>
@@ -73,7 +73,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">
-              Why Choose <span className="text-gradient">Tubon's Care</span>
+              Why Choose <span className="text-gradient">Tubon&apos;s Care</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
               We stand out through our commitment to quality, authenticity, and customer care
