@@ -57,10 +57,50 @@
   }
 
   /* ========================
+     REMEDY CARE HERO BACKGROUND
+  ======================== */
+  .remedy-hero {
+    position: relative;
+    background-image: url('/images/remedy-care-hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .remedy-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      145deg,
+      rgba(10, 35, 25, 0.90) 0%,
+      rgba(15, 60, 50, 0.82) 35%,
+      rgba(20, 80, 65, 0.72) 65%,
+      rgba(10, 35, 25, 0.88) 100%
+    );
+    z-index: 1;
+  }
+
+  .remedy-hero > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ========================
      TEXT GRADIENT
   ======================== */
   .text-gradient {
     background: linear-gradient(135deg, #52b788 0%, #d4a017 60%, #f4c842 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ========================
+     REMEDY CARE TEXT GRADIENT
+  ======================== */
+  .remedy-text-gradient {
+    background: linear-gradient(135deg, #4ade80 0%, #34d399 30%, #fbbf24 75%, #f59e0b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

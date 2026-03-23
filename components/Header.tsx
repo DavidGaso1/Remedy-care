@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Phone, Leaf, Menu, X } from "lucide-react";
-import type { SiteSettings } from "@/lib/db";
 
 const navLinks = [
   { href: "/ed-sexual-health", label: "Sexual Health" },
@@ -17,7 +16,7 @@ const navLinks = [
 
 import { ThemeToggle } from "./ThemeToggle";
 
-export default function Header({ settings }: { settings?: SiteSettings }) {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -33,9 +32,9 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
     };
   }, [isMenuOpen]);
 
-  const siteName = settings?.site_name || "Tubon's Care";
-  const whatsappNumber = settings?.whatsapp_number?.replace(/\D/g, "") || "2348140874503";
-  const consultationMessage = settings?.consultation_message || "Hello I need a consultation";
+  const siteName = "Remedy Care";
+  const whatsappNumber = "2348065648442";
+  const consultationMessage = "Hello I need a consultation";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -86,12 +85,6 @@ export default function Header({ settings }: { settings?: SiteSettings }) {
           {/* CTA & ThemeToggle */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Link
-              href="/admin/login"
-              className="flex items-center gap-2 bg-slate-700 dark:bg-slate-600 text-white text-xs font-medium px-3 py-2 rounded-xl hover:bg-slate-800 dark:hover:bg-slate-700 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
-            >
-              Admin
-            </Link>
             <a
               href={whatsappUrl}
               target="_blank"

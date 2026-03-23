@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Star, CheckCircle, MessageCircle, Sparkles, Heart, Activity, ShieldCheck, Droplet, ShieldAlert, Bone, Leaf, Shield, Truck, CreditCard } from "lucide-react";
+import { ArrowRight, Star, CheckCircle, MessageCircle, Sparkles, Heart, Activity, ShieldCheck, Droplet, ShieldAlert, Bone, Leaf, Shield, Truck, CreditCard, Phone } from "lucide-react";
 import TrustBadges from "@/components/TrustBadges";
 import Testimonials from "@/components/Testimonials";
 
@@ -104,33 +104,57 @@ const testimonials = [
   { name: "Mrs. Khadijah M.", location: "Kano", text: "Type 2 diabetic for 10 years. My blood sugar is now normal. My doctor reduced my medication!", rating: 5 },
 ];
 
+const WHATSAPP_NUMBER = "2348065648442";
+const WHATSAPP_CONSULT = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent("Hello, I need a free consultation")}`;
+
 export default function HomePage() {
   return (
     <>
       {/* ======================== HERO ======================== */}
-      <section className="hero-nature text-white py-28 md:py-40 px-4 min-h-[85vh] flex items-center overflow-hidden">
+      <section className="remedy-hero text-white py-28 md:py-44 px-4 min-h-[90vh] flex items-center overflow-hidden">
         {/* Animated orbs on top of the overlay */}
         <div className="absolute inset-0 z-[1]" aria-hidden>
-          <div className="absolute top-20 left-16 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float animation-delay-400" />
+          <div className="absolute top-20 left-16 w-80 h-80 bg-teal-400/15 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl animate-float animation-delay-400" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-900/20 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-[2] max-w-4xl mx-auto text-center w-full">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold px-5 py-2.5 rounded-full mb-8 animate-fade-in">
-            <CheckCircle size={14} className="text-primary-light" />
-            Science-Backed Natural Health Solutions
+        <div className="relative z-[2] max-w-5xl mx-auto text-center w-full">
+          {/* Brand pill */}
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/25 text-white text-sm font-semibold px-5 py-2.5 rounded-full mb-8 animate-fade-in shadow-lg">
+            <CheckCircle size={14} className="text-emerald-300" />
+            Science-Backed · NAFDAC Approved · Pay on Delivery
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight animate-fade-in animation-delay-200 nature-text-shadow">
-            Reclaim Your Vitality
-            <span className="block text-gradient mt-2 py-1">Naturally</span>
+
+          {/* Headline */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] mb-6 tracking-tight animate-fade-in animation-delay-200 nature-text-shadow">
+            Reclaim Your Health
+            <span className="block remedy-text-gradient mt-2 pb-1">Naturally & Safely</span>
           </h1>
-          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in animation-delay-400 nature-text-shadow">
-            Say goodbye to your health challenges with science-backed herbal remedies.
-            NAFDAC approved. Pay on delivery. 6,000+ happy customers.
+
+          <p className="text-lg md:text-xl text-white/85 mb-4 max-w-2xl mx-auto leading-relaxed animate-fade-in animation-delay-400 nature-text-shadow">
+            Trusted by <strong className="text-amber-300">6,000+ Nigerians</strong>. Herbal solutions for ED, Prostate, Diabetes, Infection, Joint Pain & Hypertension.
           </p>
+
+          {/* Contact quick row */}
+          <div className="flex flex-wrap gap-4 justify-center mb-10 animate-fade-in animation-delay-500">
+            <a href="tel:08065648442" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors">
+              <Phone size={14} className="text-emerald-300" /> 08065648442
+            </a>
+            <span className="text-white/30 hidden sm:inline">|</span>
+            <a href="tel:08137383428" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors">
+              <Phone size={14} className="text-emerald-300" /> 08137383428
+            </a>
+            <span className="text-white/30 hidden sm:inline">|</span>
+            <a href="mailto:rahinaaliyualiyu@gmail.com" className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors">
+              ✉️ rahinaaliyualiyu@gmail.com
+            </a>
+          </div>
+
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animation-delay-600">
             <a
-              href="https://api.whatsapp.com/send?phone=2348140874503&text=Hello%20I%20need%20a%20free%20consultation"
+              href={WHATSAPP_CONSULT}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-all duration-300 hover:-translate-y-0.5"
@@ -140,26 +164,35 @@ export default function HomePage() {
             </a>
             <a
               href="#products"
-              className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl border border-white/20 hover:border-white/40 transition-all duration-300 backdrop-blur-sm"
+              className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-4 rounded-xl border border-white/25 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
             >
-              View Products
+              View All Products
               <ArrowRight size={16} />
             </a>
+          </div>
+
+          {/* Trust micro-badges */}
+          <div className="mt-10 flex flex-wrap gap-3 justify-center animate-fade-in animation-delay-600">
+            {["NAFDAC Registered", "Pay on Delivery", "Free Nationwide Shipping", "24/7 Support"].map((badge) => (
+              <span key={badge} className="inline-flex items-center gap-1.5 bg-white/8 backdrop-blur-sm border border-white/15 text-white/75 text-xs font-medium px-3 py-1.5 rounded-full">
+                <CheckCircle size={10} className="text-emerald-300" /> {badge}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ======================== STATS BAR ======================== */}
-      <section className="relative bg-gradient-to-r from-primary-dark via-primary to-primary-dark text-white py-10 overflow-hidden">
-        <div className="absolute inset-0 bg-leaf-pattern opacity-60" />
+      <section className="relative bg-gradient-to-r from-teal-900 via-emerald-800 to-teal-900 text-white py-10 overflow-hidden">
+        <div className="absolute inset-0 bg-leaf-pattern opacity-40" />
         <div className="relative max-w-5xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat) => (
             <div key={stat.label} className="group">
               <div className="flex justify-center mb-2">
-                <stat.icon size={20} className="text-primary-200 group-hover:text-accent-light transition-colors" />
+                <stat.icon size={20} className="text-emerald-300 group-hover:text-amber-400 transition-colors" />
               </div>
               <p className="text-3xl md:text-4xl font-extrabold tracking-tight">{stat.value}</p>
-              <p className="text-primary-200 text-sm mt-1 font-medium">{stat.label}</p>
+              <p className="text-emerald-200 text-sm mt-1 font-medium">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -269,17 +302,24 @@ export default function HomePage() {
       </section>
 
       {/* ======================== FINAL CTA ======================== */}
-      <section className="hero-nature text-white py-28 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d2010]/90 via-primary-dark/80 to-primary/70 z-[1]" style={{position: 'absolute', inset: 0, zIndex: 1}} />
+      <section className="remedy-hero text-white py-28 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1f14]/92 via-teal-900/85 to-emerald-800/70 z-[1]" style={{position: 'absolute', inset: 0, zIndex: 1}} />
         <div className="relative z-[2] max-w-3xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-semibold px-5 py-2 rounded-full mb-8">
+            <MessageCircle size={14} className="text-emerald-300" />
+            Free Consultation Available Now
+          </div>
           <h2 className="text-3xl md:text-5xl font-extrabold mb-5 tracking-tight nature-text-shadow">
             Ready to Start Your Healing Journey?
           </h2>
-          <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-white/80 text-lg mb-4 max-w-xl mx-auto">
             Get a free consultation on WhatsApp. We&apos;ll recommend the right product for your condition.
           </p>
+          <p className="text-white/60 text-sm mb-10">
+            📞 08065648442 &nbsp;|&nbsp; 08137383428 &nbsp;|&nbsp; ✉️ rahinaaliyualiyu@gmail.com
+          </p>
           <a
-            href="https://api.whatsapp.com/send?phone=2348140874503&text=Hello%20I%20want%20a%20free%20consultation"
+            href={WHATSAPP_CONSULT}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-white text-primary font-bold px-10 py-5 rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"

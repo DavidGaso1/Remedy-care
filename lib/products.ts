@@ -162,7 +162,7 @@ export const products: Product[] = [
     ],
     warningNote: "If you're already experiencing blood in urine or urinary tract infections due to an enlarged prostate, this pack will also help treat those conditions successfully.",
     pricingPacks: [
-      { label: "Mini Pack", bottles: 3, originalPrice: 57500, salePrice: 47500, description: "For early symptoms & prevention", includedProducts: ["1 Prosbeta", "1 Longzit"] },
+      { label: "Mini Pack", bottles: 2, originalPrice: 57500, salePrice: 47500, description: "For early symptoms & prevention", includedProducts: ["1 Prosbeta", "1 Longzit"] },
       { label: "Medium Pack", bottles: 3, originalPrice: 69500, salePrice: 59500, description: "Moderate prostate enlargement", recommended: true, includedProducts: ["2 Prosbeta", "1 Longzit", "1 Myco Balance"] },
       { label: "Maxi Pack", bottles: 4, originalPrice: 92500, salePrice: 82500, description: "Advanced treatment course", includedProducts: ["2 Prosbeta", "1 Longzit", "1 Myco Balance"] },
       { label: "Severe Pack", bottles: 5, originalPrice: 130000, salePrice: 120000, description: "Long-term or severe prostate conditions", includedProducts: ["3 Prosbeta", "1 Myco Balance", "1 Zinc"] },
@@ -536,7 +536,6 @@ export const products: Product[] = [
     images: [
       "/images/products/ulcer/ulcer-1.png",
       "/images/products/ulcer/ulcer-2.png",
-      "/images/products/ulcer/ulcer-3.png",
     ],
     educationalIntro: "Stomach ulcers are painful sores in the stomach lining that can make eating and daily life a nightmare. Often caused by H. pylori bacteria or long-term use of anti-inflammatory drugs, ulcers can lead to severe complications if left untreated. Our natural approach focuses on eliminating the root cause and promoting the regeneration of the stomach lining.",
     rootCauses: [

@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { Leaf, Phone, Clock, Truck, CreditCard, CheckCircle } from "lucide-react";
-import type { SiteSettings } from "@/lib/db";
 
-export default function Footer({ settings }: { settings?: SiteSettings }) {
-  const siteName = settings?.site_name || "Tubon's Care";
+export default function Footer() {
+  const siteName = "Remedy Care";
 
   return (
     <footer className="relative text-white overflow-hidden" style={{ background: "linear-gradient(160deg, #0d2010 0%, #1b4332 60%, #0d2010 100%)" }}>
@@ -31,7 +30,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
               </h3>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
-              {settings?.site_description || "Science-backed natural solutions for your health challenges."}
+              Science-backed natural solutions for your health challenges.
               NAFDAC approved. Pay on delivery nationwide.
             </p>
           </div>
@@ -66,13 +65,31 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                 <p className="font-semibold text-slate-300 mb-1">Address:</p>
                 <p className="flex items-start gap-2">
                   <span className="text-primary-light mt-0.5">📍</span>
-                  Ide Plaza Utako, Ajose Adeogun Street, Abuja
+                  <span>
+                    <strong>Abuja Office:</strong><br />
+                    Shop 1, Abori Garden and Restaurants,<br />
+                    off Funmilayo Ransom kuti Road,<br />
+                    Garki, Area3
+                  </span>
+                </p>
+                <p className="flex items-start gap-2 mt-3">
+                  <span className="text-primary-light mt-0.5">📍</span>
+                  <span>
+                    <strong>Niger State Office:</strong><br />
+                    No 1 Aliyu Wali sardauna crescent,<br />
+                    OPP. Union Bank,<br />
+                    Suleja, Niger State
+                  </span>
                 </p>
               </div>
               <div>
                 <p className="font-semibold text-slate-300 mb-1">Phone:</p>
-                <p className="flex items-center gap-2"><Phone size={16} className="text-primary-light" /> 08140874503</p>
-                <p className="flex items-center gap-2"><Phone size={16} className="text-primary-light" /> 08168750888</p>
+                <p className="flex items-center gap-2"><Phone size={16} className="text-primary-light" /> 08065648442</p>
+                <p className="flex items-center gap-2"><Phone size={16} className="text-primary-light" /> 08137383428</p>
+              </div>
+              <div>
+                <p className="font-semibold text-slate-300 mb-1">Email:</p>
+                <p className="flex items-center gap-2"><span className="text-primary-light">✉️</span> rahinaaliyualiyu@gmail.com</p>
               </div>
               <p className="flex items-center gap-2"><Clock size={16} className="text-primary-light" /> Available 24/7</p>
               <p className="flex items-center gap-2"><Truck size={16} className="text-primary-light" /> Free delivery nationwide</p>

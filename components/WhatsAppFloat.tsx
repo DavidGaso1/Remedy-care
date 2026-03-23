@@ -1,8 +1,6 @@
-import type { SiteSettings } from "@/lib/db";
-
-export default function WhatsAppFloat({ settings }: { settings?: SiteSettings }) {
-  const whatsappNumber = settings?.whatsapp_number?.replace(/\D/g, "") || "2348140874503";
-  const helpMessage = settings?.consultation_message || "Hello I need help with a product";
+export default function WhatsAppFloat() {
+  const whatsappNumber = "2348065648442";
+  const helpMessage = "Hello I need help with a product";
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(helpMessage)}`;
 
   return (

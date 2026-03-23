@@ -56,41 +56,29 @@ export default function CheckoutModal({
         setError("");
 
         try {
-            const res = await fetch("/api/orders", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    customer: formData.name,
-                    phone: formData.phone,
-                    product: `${productName} - ${packLabel}`,
-                    amount: packPrice,
-                    address: formData.address,
-                    delivery_date: formData.deliveryDate,
-                    payment_option: formData.paymentOption,
-                }),
-            });
-
-            if (!res.ok) {
-                const errorData = await res.json();
-                throw new Error(errorData.error || "Failed to process order.");
-            }
-
             const webhookPayload = {
+                type: "order",
                 productName,
                 packLabel,
                 packPrice,
                 packBottles,
-                customer: formData,
+                customer: formData.name,
+                phone: formData.phone,
+                address: formData.address,
+                deliveryDate: formData.deliveryDate,
+                paymentOption: formData.paymentOption,
                 submittedAt: new Date().toISOString(),
             };
 
-            fetch("https://n8n.simeonsamari.com/webhook-test/tubonscare", {
+            const res = await fetch("https://n8n.simeonsamari.com/webhook/Remedy Care", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(webhookPayload),
-            }).catch((err) => {
-                console.error("Webhook dispatch failed", err);
             });
+
+            if (!res.ok) {
+                throw new Error("Failed to process order.");
+            }
 
             setSubmitted(true);
 

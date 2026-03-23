@@ -21,7 +21,7 @@ export default function AboutPage() {
           </h1>
           
           <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            Tubon&apos;s Care is dedicated to providing science-backed, NAFDAC-approved natural solutions 
+            Remedy Care is dedicated to providing science-backed, NAFDAC-approved natural solutions 
             for your health challenges. We combine traditional herbal wisdom with modern research to deliver 
             effective, safe remedies.
           </p>
@@ -73,7 +73,7 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">
-              Why Choose <span className="text-gradient">Tubon&apos;s Care</span>
+              Why Choose <span className="text-gradient">Remedy Care</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
               We stand out through our commitment to quality, authenticity, and customer care
@@ -130,12 +130,19 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
                 <h3 className="font-bold text-dark dark:text-white mb-3 flex items-center gap-2">
-                  <span className="text-primary">📍</span> Our Location
+                  <span className="text-primary">📍</span> Our Locations
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  Ide Plaza Utako<br />
-                  Ajose Adeogun Street<br />
-                  Abuja, Nigeria
+                  <strong>Abuja Office:</strong><br />
+                  Shop 1, Abori Garden and Restaurants,<br />
+                  off Funmilayo Ransom kuti Road,<br />
+                  Garki, Area3
+                </p>
+                <p className="text-slate-600 dark:text-slate-300 mt-4">
+                  <strong>Niger State Office:</strong><br />
+                  No 1 Aliyu Wali sardauna crescent,<br />
+                  OPP. Union Bank,<br />
+                  Suleja, Niger State
                 </p>
               </div>
               
@@ -144,11 +151,14 @@ export default function AboutPage() {
                   <span className="text-primary">📞</span> Contact Numbers
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
-                  08140874503<br />
-                  08168750888
+                  08065648442<br />
+                  08137383428
                 </p>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
                   Available 24/7 on WhatsApp
+                </p>
+                <p className="text-slate-600 dark:text-slate-300 mt-3">
+                  ✉️ rahinaaliyualiyu@gmail.com
                 </p>
               </div>
             </div>
