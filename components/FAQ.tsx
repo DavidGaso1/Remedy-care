@@ -16,12 +16,12 @@ export default function FAQ({ items }: { items: FAQItem[] }) {
         <div
           key={i}
           className={`border rounded-2xl overflow-hidden transition-all duration-300 ${open === i
-              ? "border-primary/20 bg-primary-50/30 dark:bg-primary/5 shadow-md"
-              : "border-gray-200/80 dark:border-white/5 hover:border-gray-300 dark:hover:border-white/10 bg-white dark:bg-slate-800/40"
+              ? "border-primary/50 bg-primary-50/50 dark:bg-primary/20 shadow-glass"
+              : "border-white/40 dark:border-white/20 hover:border-primary/30 dark:hover:border-primary/40 bg-white/60 dark:bg-slate-900/40 backdrop-blur-xl"
             }`}
         >
           <button
-            className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-dark dark:text-white transition-colors"
+            className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-slate-900 dark:text-white transition-colors"
             onClick={() => setOpen(open === i ? null : i)}
             aria-expanded={open === i}
             aria-controls={`faq-answer-${i}`}

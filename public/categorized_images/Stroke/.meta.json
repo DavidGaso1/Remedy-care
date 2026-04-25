@@ -1,0 +1,44 @@
+{
+  "category": "Stroke",
+  "slug": "stroke",
+  "appRoute": null,
+  "appProductId": null,
+  "description": "Stroke prevention and post-stroke recovery products for neurological and cardiovascular rehabilitation",
+  "subCategories": ["Ischemic Stroke", "Hemorrhagic Stroke", "Post-Stroke Recovery"],
+  "products": [
+    {
+      "code": "A02",
+      "name": "Longzit",
+      "type": "Capsule",
+      "file": "A02_LONGZIT.jpg",
+      "role": "Circulatory support & blood vessel health"
+    },
+    {
+      "code": "A09",
+      "name": "GHT Ginseng & Royal Jelly Softgel",
+      "type": "Softgel",
+      "file": "A09_GHT_GINSENG___ROYAL_JELLY_SOFTGEL.jpg",
+      "role": "Neurological recovery & energy restoration"
+    }
+  ],
+  "expectedConditions": [
+    "stroke-symptoms-FAST.jpg",
+    "stroke-types-comparison.jpg",
+    "stroke-brain-anatomy.jpg",
+    "stroke-risk-factors.jpg",
+    "stroke-recovery-stages.jpg"
+  ],
+  "expectedTestimonials": [
+    "stroke-testimonial-01.jpg",
+    "stroke-testimonial-02.jpg",
+    "stroke-testimonial-03.jpg"
+  ],
+  "expectedInformational": [
+    "stroke-info-how-it-works.jpg",
+    "stroke-info-prevention-guide.jpg",
+    "stroke-info-rehabilitation-tips.jpg",
+    "stroke-info-blood-thinning.jpg"
+  ],
+  "keywords": ["stroke", "cerebrovascular", "ischemic", "hemorrhagic", "brain attack", "recovery", "rehabilitation"],
+  "lastUpdated": "2026-04-23"
+}

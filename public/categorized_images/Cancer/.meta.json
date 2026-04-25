@@ -1,0 +1,50 @@
+{
+  "category": "Cancer",
+  "slug": "cancer",
+  "appRoute": null,
+  "appProductId": null,
+  "description": "Cancer support and immune-boosting herbal products for prevention, treatment support, and recovery",
+  "subCategories": ["Prevention", "Treatment Support", "Recovery"],
+  "products": [
+    {
+      "code": "A07",
+      "name": "B-Clear",
+      "type": "Capsule",
+      "file": "A07_B_CLEAR.jpg",
+      "role": "Blood purifier & immune support"
+    },
+    {
+      "code": "A11",
+      "name": "GHT Myco Balance Softgel",
+      "type": "Softgel",
+      "file": "A11_GHT_MYCO_BALANCE_SOFTGEL.jpg",
+      "role": "Mycelium-based immune modulation"
+    },
+    {
+      "code": "B04",
+      "name": "Garlic Oil Softgel",
+      "type": "Softgel",
+      "file": "B04_GARLIC_OIL_SOFTGEL.jpg",
+      "role": "Natural antimicrobial & antioxidant"
+    }
+  ],
+  "expectedConditions": [
+    "cancer-symptoms-general.jpg",
+    "cancer-stages-overview.jpg",
+    "cancer-immune-system.jpg",
+    "cancer-types-common.jpg"
+  ],
+  "expectedTestimonials": [
+    "cancer-testimonial-01.jpg",
+    "cancer-testimonial-02.jpg",
+    "cancer-testimonial-03.jpg"
+  ],
+  "expectedInformational": [
+    "cancer-info-how-it-works.jpg",
+    "cancer-info-ingredient-guide.jpg",
+    "cancer-info-dosage-chart.jpg",
+    "cancer-info-lifestyle-guide.jpg"
+  ],
+  "keywords": ["cancer", "tumor", "malignancy", "immune support", "antioxidant", "cellular health"],
+  "lastUpdated": "2026-04-23"
+}

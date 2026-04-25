@@ -3,20 +3,20 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-primary-50 dark:from-dark dark:to-dark-lighter">
+    <div className="min-h-screen bg-gradient-to-b from-white/50 to-primary-50/50 dark:from-slate-900 dark:to-slate-900/50 backdrop-blur-sm">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+      <section className="relative py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-emerald-400/10" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-400/15 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-400/15 rounded-full blur-3xl" />
         
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 px-4 py-2 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 bg-primary/10 dark:bg-primary/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/30 dark:border-white/10">
             <Leaf size={16} className="text-primary" />
             <span className="text-sm font-semibold text-primary">About Us</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
             Your Trusted Partner in <span className="text-gradient">Natural Health</span>
           </h1>
           
@@ -29,36 +29,36 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Values */}
-      <section className="py-16 bg-white dark:bg-dark">
+      <section className="py-16 md:py-20 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary-dark rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            <div className="text-center p-6 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-white/40 dark:border-white/10 hover:shadow-glass transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glass">
                 <Heart size={28} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-dark dark:text-white mb-3">Our Mission</h3>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Our Mission</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                 To make natural, effective healthcare accessible to everyone across Nigeria through 
                 quality herbal remedies and exceptional customer service.
               </p>
             </div>
 
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/20">
-              <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <div className="text-center p-6 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-white/40 dark:border-white/10 hover:shadow-glass transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent-dark rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glass">
                 <ShieldCheck size={28} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-dark dark:text-white mb-3">Quality Assurance</h3>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Quality Assurance</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                 All our products are NAFDAC-approved and sourced from trusted manufacturers, 
                 ensuring safety, efficacy, and compliance with health standards.
               </p>
             </div>
 
-            <div className="text-center p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/10 dark:from-primary/10 dark:to-accent/20">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <div className="text-center p-6 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-white/40 dark:border-white/10 hover:shadow-glass transition-all duration-300">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-glass">
                 <Users size={28} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold text-dark dark:text-white mb-3">Customer First</h3>
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Customer First</h3>
               <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                 Your health and satisfaction are our priority. We offer free consultations, 
                 nationwide delivery, and payment on delivery for your convenience.
@@ -69,10 +69,10 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-16 bg-gradient-to-b from-white to-primary-50 dark:from-dark-lighter dark:to-dark">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white/50 to-primary-50/50 dark:from-slate-900/50 dark:to-slate-900 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-dark dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Why Choose <span className="text-gradient">Remedy Care</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
@@ -80,7 +80,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {[
               {
                 icon: Award,
@@ -103,14 +103,14 @@ export default function AboutPage() {
                 description: "Join thousands of satisfied customers who have improved their health naturally"
               }
             ].map((item, index) => (
-              <div key={index} className="flex gap-4 p-6 bg-white dark:bg-dark rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+              <div key={index} className="flex gap-4 p-6 bg-white/60 dark:bg-white/5 backdrop-blur-xl rounded-2xl border border-white/40 dark:border-white/10 shadow-glass hover:shadow-glass-lg transition-all duration-300">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center">
                     <item.icon size={20} className="text-white" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-dark dark:text-white mb-2">{item.title}</h3>
+                  <h3 className="font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
                   <p className="text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
                 </div>
               </div>
@@ -120,16 +120,16 @@ export default function AboutPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-white dark:bg-dark">
+      <section className="py-16 md:py-20 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl font-bold text-dark dark:text-white mb-6">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
             Visit Our Store or Contact Us
           </h2>
           
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 dark:from-primary/10 dark:to-accent/10 rounded-2xl p-8 mb-8">
+          <div className="glass-panel-strong rounded-2xl p-8 mb-8">
             <div className="grid md:grid-cols-2 gap-8 text-left">
               <div>
-                <h3 className="font-bold text-dark dark:text-white mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
                   <span className="text-primary">📍</span> Our Locations
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
@@ -147,7 +147,7 @@ export default function AboutPage() {
               </div>
               
               <div>
-                <h3 className="font-bold text-dark dark:text-white mb-3 flex items-center gap-2">
+                <h3 className="font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
                   <span className="text-primary">📞</span> Contact Numbers
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
@@ -166,7 +166,7 @@ export default function AboutPage() {
 
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary-dark text-white font-bold px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white font-bold px-8 py-4 rounded-xl shadow-glass hover:shadow-glass-lg transition-all duration-300 hover:-translate-y-0.5 border border-white/20"
           >
             <Leaf size={20} />
             Explore Our Products

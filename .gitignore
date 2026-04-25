@@ -34,3 +34,23 @@ next-env.d.ts
 
 # SQLite database (persistent volume in production)
 data.db
+
+# agents
+.agents
+.claude
+.agent
+.codebuddy
+.codex
+.continue
+.cursor
+.gemini
+.prompts
+.kilo
+.kiro
+.prompts\ui-ux-pro-max
+.github
+.opencode
+.qoder
+.roo
+.trae
+.windsurf

@@ -12,10 +12,10 @@ export default function PricingCard({ pack, onOrder }: Props) {
 
   return (
     <div
-      className={`relative flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1.5 ${
+      className={`relative flex flex-col h-full rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 ${
         pack.recommended
-          ? "bg-gradient-to-b from-white to-primary-50 dark:from-[#1b4332] dark:to-[#133228] ring-2 ring-primary shadow-nature"
-          : "bg-white dark:bg-[#1b4332] border border-earth-100 dark:border-white/5 shadow-soft hover:shadow-premium"
+          ? "bg-white/70 dark:bg-white/5 backdrop-blur-xl ring-2 ring-primary shadow-glass-lg"
+          : "bg-white/60 dark:bg-white/5 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-glass hover:shadow-glass-lg"
       }`}
     >
       {pack.recommended && (
@@ -24,16 +24,16 @@ export default function PricingCard({ pack, onOrder }: Props) {
         </div>
       )}
 
-      <div className="p-5 flex-1 flex flex-col">
+      <div className="p-6 flex-1 flex flex-col">
         {/* Pack Name */}
-        <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider text-center mb-2">
+        <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider text-center mb-3">
           {pack.label}
         </p>
 
         {/* Price */}
-        <div className="text-center mb-3">
+        <div className="text-center mb-4">
           <div className="flex items-baseline justify-center gap-1">
-            <span className="text-3xl font-extrabold text-[#0d2010] dark:text-white">₦{pack.salePrice.toLocaleString()}</span>
+            <span className="text-3xl font-extrabold text-slate-900 dark:text-white">₦{pack.salePrice.toLocaleString()}</span>
           </div>
           <div className="flex items-center justify-center gap-2 mt-1">
             <span className="text-sm text-slate-400 dark:text-slate-500 line-through">₦{pack.originalPrice.toLocaleString()}</span>
@@ -45,21 +45,21 @@ export default function PricingCard({ pack, onOrder }: Props) {
 
         {/* Bottles */}
         <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="w-7 h-7 bg-gradient-to-br from-primary/10 to-primary/20 dark:from-primary/20 dark:to-primary/30 rounded-full flex items-center justify-center text-primary dark:text-primary-light font-bold text-xs">
+          <span className="w-8 h-8 bg-gradient-to-br from-primary/10 to-primary/20 dark:from-primary/20 dark:to-primary/30 rounded-full flex items-center justify-center text-primary dark:text-primary-light font-bold text-sm">
             {pack.bottles}
           </span>
-          <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">
+          <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">
             {pack.bottles} {pack.bottles === 1 ? "bottle" : "bottles"}
           </span>
         </div>
 
         {/* Description */}
-        <p className="text-xs text-slate-500 dark:text-slate-400 text-center mb-5 leading-relaxed">
+        <p className="text-sm text-slate-500 dark:text-slate-400 text-center mb-5 leading-relaxed">
           {pack.description}
         </p>
 
         {pack.includedProducts && pack.includedProducts.length > 0 && (
-          <div className="mb-5 bg-earth-50 dark:bg-[#133228] rounded-xl p-3 border border-earth-100 dark:border-white/5">
+          <div className="mb-5 bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/40 dark:border-white/10">
             <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mb-2">Included Products:</p>
             <ul className="space-y-1.5">
               {pack.includedProducts.map((prod, idx) => (
@@ -72,16 +72,15 @@ export default function PricingCard({ pack, onOrder }: Props) {
           </div>
         )}
 
-        {/* Order Button */}
         <button
           onClick={onOrder}
-          className={`mt-auto flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 hover:-translate-y-0.5 ${
+          className={`mt-auto ${
             pack.recommended
-              ? "bg-gradient-to-r from-primary to-primary-dark hover:from-primary-dark hover:to-primary-700 text-white shadow-premium shadow-primary/20"
-              : "bg-primary hover:bg-primary-dark text-white shadow-soft"
+              ? "btn-gold h-auto py-3 shadow-gold shadow-accent/20"
+              : "btn-primary h-auto py-3 shadow-glass shadow-primary/20"
           }`}
         >
-          <MessageCircle size={15} />
+          <MessageCircle size={14} />
           Order Now
         </button>
       </div>
