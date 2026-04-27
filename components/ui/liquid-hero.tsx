@@ -148,7 +148,7 @@ export default function LiquidHero({
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-sand-50 via-white to-sage-50 dark:from-[#030712] dark:via-[#0a0f1a] dark:to-[#0d1218]">
+    <div className="relative w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-sand-50 via-white to-sage-50 dark:from-[#030712] dark:via-[#0a0f1a] dark:to-[#0d1218] py-20 md:py-28">
       {/* Liquid Background Blobs */}
       <motion.div style={{ opacity }} className="absolute inset-0 overflow-hidden">
         <LiquidBlob

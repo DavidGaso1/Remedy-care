@@ -24,6 +24,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -54,3 +55,10 @@ data.db
 .roo
 .trae
 .windsurf
+.vscode
+rtk
+rtk-bin
+.windsurfrules
+skills
+rtk.zip
+.github

@@ -119,7 +119,7 @@
   }
 
   .btn-whatsapp {
-    @apply bg-gradient-to-br from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] text-white font-medium px-6 py-3 rounded-2xl transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_24px_-6px_rgba(37,211,102,0.55)] flex items-center justify-center gap-2 w-full;
+    @apply bg-gradient-to-br from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] text-white font-medium px-8 py-3.5 rounded-full transition-all duration-300 shadow-[0_8px_20px_-6px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_24px_-6px_rgba(37,211,102,0.55)] flex items-center justify-center gap-2 w-fit mx-auto;
   }
 
   .btn-gold {

@@ -105,14 +105,14 @@ export default function ProductPage({ product }: { product: Product }) {
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto animate-fade-in animation-delay-400 nature-text-shadow">
             {product.heroSubheadline}
           </p>
-          <button
+<button
             onClick={scrollToPricing}
-            className="btn-whatsapp px-6 py-3 h-auto animate-fade-in animation-delay-600 shadow-lg shadow-[#25D366]/20"
+            className="btn-whatsapp animate-fade-in animation-delay-600 shadow-lg shadow-[#25D366]/20"
           >
             <MessageCircle size={16} />
             Order Now — Pay on Delivery
           </button>
-        </div>
+</div>
       </section>
 
       {/* ======================== EDUCATIONAL INTRO ======================== */}
@@ -372,9 +372,9 @@ export default function ProductPage({ product }: { product: Product }) {
           </p>
           <button
             onClick={scrollToPricing}
-            className="btn-primary px-10 py-5 h-auto text-lg shadow-glass-lg hover:shadow-2xl border border-white/40"
+            className="btn-primary px-6 py-3 h-auto text-lg shadow-glass-lg hover:shadow-2xl border border-white/40"
           >
-            <MessageCircle size={22} />
+            <MessageCircle size={18} />
             Order Now
           </button>
           <p className="mt-5 text-sm text-white/60">One of our agents will give you a call within minutes of your order.</p>

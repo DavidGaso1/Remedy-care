@@ -32,7 +32,7 @@ const productCategories = [
     color: "from-blue-500 to-cyan-600",
     bgGlow: "bg-blue-50",
     startPrice: "₦71,600",
-    image: "/categorized_images/Prostatitis/products/A06_PROSTBETA_.png",
+    image: "/product_images/PROSBETA.png",
   },
   {
     slug: "diabetes",
@@ -44,7 +44,7 @@ const productCategories = [
     color: "from-orange-500 to-amber-600",
     bgGlow: "bg-orange-50",
     startPrice: "₦69,896",
-    image: "/categorized_images/Diabetes Type 2/products/A14_DIALESE.png",
+    image: "/product_images/DIALESE.png",
   },
   {
     slug: "infection",
@@ -56,7 +56,7 @@ const productCategories = [
     color: "from-teal-500 to-emerald-600",
     bgGlow: "bg-teal-50",
     startPrice: "₦61,226",
-    image: "/images/products/infection/infection-1.png",
+    image: "/product_images/B-CLEAR.png",
   },
   {
     slug: "joint-pain",
@@ -68,7 +68,7 @@ const productCategories = [
     color: "from-purple-500 to-violet-600",
     bgGlow: "bg-purple-50",
     startPrice: "₦53,500",
-    image: "/images/products/joint-pain/joint-1.png",
+    image: "/product_images/SPABUCTA_SPRAY.png",
   },
   {
     slug: "blood-pressure",
@@ -80,7 +80,7 @@ const productCategories = [
     color: "from-red-500 to-rose-600",
     bgGlow: "bg-red-50",
     startPrice: "₦96,130",
-    image: "/categorized_images/Hypotension - Hypertension/products/A13_HYPERFREE.png",
+    image: "/product_images/A13_HYPERFREE.png",
   },
   {
     slug: "ulcer",
@@ -92,7 +92,7 @@ const productCategories = [
     color: "from-emerald-500 to-green-600",
     bgGlow: "bg-emerald-50",
     startPrice: "₦58,596",
-    image: "/categorized_images/Ulcer/products/A08_STO_CARE.png",
+    image: "/product_images/STO_CARE.png",
   },
   {
     slug: "cancer",
@@ -104,7 +104,7 @@ const productCategories = [
     color: "from-indigo-500 to-violet-600",
     bgGlow: "bg-indigo-50",
     startPrice: "₦86,226",
-    image: "/categorized_images/Cancer/products/A07_B_CLEAR.png",
+    image: "/product_images/B-CLEAR.png",
   },
   {
     slug: "female-infertility",
@@ -116,7 +116,7 @@ const productCategories = [
     color: "from-pink-500 to-rose-600",
     bgGlow: "bg-pink-50",
     startPrice: "₦85,650",
-    image: "/categorized_images/Female Infertility/products/A03_FEMALE_CARE.png",
+    image: "/product_images/FEMALE_CARE.png",
   },
   {
     slug: "hemorrhoid-pile",
@@ -128,7 +128,7 @@ const productCategories = [
     color: "from-amber-500 to-orange-600",
     bgGlow: "bg-amber-50",
     startPrice: "₦48,700",
-    image: "/categorized_images/Hemorrhoid (Pile)/products/A10_GHT_GANODERMA_SOFTGEL__REISHI_3_IN_1_.png",
+    image: "/product_images/GANODERMA_REISHI_3_IN_1.png",
   },
   {
     slug: "hepatitis",
@@ -140,7 +140,7 @@ const productCategories = [
     color: "from-yellow-500 to-amber-600",
     bgGlow: "bg-yellow-50",
     startPrice: "₦94,320",
-    image: "/categorized_images/Hepatitis/products/A07_B_CLEAR.png",
+    image: "/product_images/B-CLEAR.png",
   },
   {
     slug: "liver-disease",
@@ -152,7 +152,7 @@ const productCategories = [
     color: "from-amber-600 to-yellow-700",
     bgGlow: "bg-amber-50",
     startPrice: "₦91,580",
-    image: "/categorized_images/Liver Disease/products/A17_LIVITIES_TABLET.png",
+    image: "/product_images/LIVITIES.png",
   },
   {
     slug: "stroke",
@@ -164,7 +164,7 @@ const productCategories = [
     color: "from-red-600 to-rose-700",
     bgGlow: "bg-red-50",
     startPrice: "₦38,100",
-    image: "/categorized_images/Stroke/products/A02_LONGZIT.png",
+    image: "/product_images/LONGZIT.png",
   },
 ];
 
@@ -206,9 +206,10 @@ export default function HomePage() {
       />
 
       {/* ======================== STATS BAR ======================== */}
-      <section className="relative bg-gradient-to-r from-slate-900 via-sage-900/80 to-slate-900 text-white py-12 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-slate-900 via-sage-900/80 to-slate-900 text-white py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-leaf-pattern opacity-30" />
-        <div className="relative max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+<div className="relative max-w-6xl mx-auto px-4">
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 align-items-stretch">
           {stats.map((stat, index) => (
             <LiquidStatCard
               key={stat.label}
@@ -219,6 +220,7 @@ export default function HomePage() {
             />
           ))}
         </div>
+</div>
       </section>
 
       {/* ======================== TRUST BADGES ======================== */}

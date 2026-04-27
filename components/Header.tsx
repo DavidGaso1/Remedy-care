@@ -50,7 +50,7 @@ export default function Header() {
   const siteName = "Remedy Care";
   const whatsappNumber = "2348065648442";
   const consultationMessage = "Hello I need a consultation";
-  const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(consultationMessage)}`;
+  const whatsappUrl = `https://api.unsplash.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(consultationMessage)}`;
 
   // Click outside: desktop products dropdown
   useEffect(() => {
@@ -87,11 +87,11 @@ export default function Header() {
 
   // Desktop dropdown item variants (staggered)
   const dropdownItemVariants = {
-    hidden: { opacity: 0, x: -8 },
+    hidden: { opacity: 0, y: -6 },
     visible: (i: number) => ({
       opacity: 1,
-      x: 0,
-      transition: { delay: i * 0.04, duration: 0.3, ease },
+      y: 0,
+      transition: { delay: i * 0.05, duration: 0.3, ease },
     }),
   };
 
@@ -110,8 +110,98 @@ export default function Header() {
     visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease } },
   };
 
+  // Product list item with liquid hover effect
+  const productListItemVariants = {
+    hidden: { opacity: 0, x: -8 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: i * 0.04, duration: 0.25, ease },
+    }),
+  };
+
   return (
     <>
+      {/* Custom CSS for liquid animations */}
+      <style jsx global>{`
+        @keyframes liquid-blob {
+          0%, 100% {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            transform: translate(0, 0) rotate(0deg);
+          }
+          25% {
+            border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            transform: translate(5px, -5px) rotate(5deg);
+          }
+          50% {
+            border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+            transform: translate(-3px, 5px) rotate(-3deg);
+          }
+          75% {
+            border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%;
+            transform: translate(3px, -3px) rotate(3deg);
+          }
+        }
+
+        @keyframes liquid-pour {
+          0% {
+            transform: scaleY(0);
+            opacity: 0;
+            filter: blur(8px);
+          }
+          100% {
+            transform: scaleY(1);
+            opacity: 1;
+            filter: blur(0);
+          }
+        }
+
+        @keyframes liquid-ripple {
+          0% {
+            box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.4);
+          }
+          100% {
+            box-shadow: 0 0 0 12px rgba(0, 200, 83, 0);
+          }
+        }
+
+        .liquid-blob-animation {
+          animation: liquid-blob 12s ease-in-out infinite;
+        }
+
+        .liquid-pour-animation {
+          animation: liquid-pour 0.5s ease-out forwards;
+        }
+
+        .liquid-ripple-animation {
+          animation: liquid-ripple 0.8s ease-out infinite;
+        }
+
+        /* Custom scrollbar for dark theme */
+        .scrollbar-dark::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .scrollbar-dark::-webkit-scrollbar-track {
+          background: rgba(10, 20, 30, 0.3);
+          border-radius: 3px;
+        }
+
+        .scrollbar-dark::-webkit-scrollbar-thumb {
+          background: rgba(0, 200, 83, 0.4);
+          border-radius: 3px;
+        }
+
+        .scrollbar-dark::-webkit-scrollbar-thumb:hover {
+          background: rgba(0, 200, 83, 0.6);
+        }
+
+        .scrollbar-dark {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0, 200, 83, 0.4) rgba(10, 20, 30, 0.3);
+        }
+      `}</style>
+
       <header
         style={{
           background: "transparent",
@@ -147,7 +237,7 @@ export default function Header() {
             pointerEvents: "auto",
           }}
         >
-          {/* Logo - No wrapper, no background */}
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <Leaf size={18} className="text-white" />
             <span className="font-extrabold text-base leading-tight text-white">
@@ -156,7 +246,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* ── Desktop Nav ── */}
+          {/* Desktop Nav */}
           <motion.nav
             variants={navContainerVariants}
             initial="hidden"
@@ -172,7 +262,7 @@ export default function Header() {
                 onMouseLeave={() => setIsProductsOpen(false)}
               >
                 <button
-                  className="relative text-sm font-medium px-3 py-2 rounded-xl transition-all duration-300 flex items-center gap-1.5 text-slate-300 hover:text-sage-400 hover:bg-white/[0.07]"
+                  className="relative text-sm font-medium px-3 py-2 rounded-xl transition-all duration-300 flex items-center gap-1.5 text-slate-300 hover:text-[#00c853] hover:bg-white/[0.07]"
                 >
                   Products
                   <motion.div
@@ -186,13 +276,47 @@ export default function Header() {
                 <AnimatePresence>
                   {isProductsOpen && (
                     <motion.div
-                      initial={{ opacity: 0, y: -8, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -8, scale: 0.96 }}
-                      transition={{ duration: 0.25, ease }}
-                      className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 min-w-[220px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl rounded-2xl p-3 shadow-[0_8px_40px_rgba(0,0,0,0.4)] border border-sage-200/50 dark:border-white/[0.06] z-[100]"
+                      initial={{ opacity: 0, y: -12, scale: 0.94 }}
+                      animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: -12, scale: 0.94, filter: "blur(4px)" }}
+                      transition={{ duration: 0.35, ease }}
+                      className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-1/2 min-w-[240px] rounded-2xl p-1 z-[100] liquid-pour-animation"
+                      style={{
+                        background: "rgba(10, 20, 30, 0.75)",
+                        backdropFilter: "blur(20px)",
+                        border: "1px solid rgba(255,255,255,0.1)",
+                        boxShadow: "0 12px 48px rgba(0, 200, 83, 0.15), 0 0 60px rgba(0, 200, 83, 0.1)",
+                      }}
                     >
-                      <div className="space-y-0.5">
+                      {/* Liquid blob background */}
+                      <div
+                        className="absolute inset-0 overflow-hidden rounded-xl pointer-events-none"
+                        style={{ zIndex: 0 }}
+                      >
+                        <div
+                          className="liquid-blob-animation absolute"
+                          style={{
+                            width: "180px",
+                            height: "180px",
+                            background: "radial-gradient(circle, rgba(0, 200, 83, 0.15) 0%, rgba(0, 200, 83, 0.05) 50%, transparent 70%)",
+                            top: "-60px",
+                            right: "-40px",
+                          }}
+                        />
+                        <div
+                          className="liquid-blob-animation absolute"
+                          style={{
+                            width: "140px",
+                            height: "140px",
+                            background: "radial-gradient(circle, rgba(0, 200, 83, 0.1) 0%, rgba(0, 200, 83, 0.03) 50%, transparent 70%)",
+                            bottom: "-40px",
+                            left: "-30px",
+                            animationDelay: "-4s",
+                          }}
+                        />
+                      </div>
+
+                      <div className="relative z-10 max-h-[60vh] overflow-y-auto scrollbar-dark py-2">
                         {productLinks.map((link, i) => (
                           <motion.div
                             key={link.href}
@@ -204,9 +328,13 @@ export default function Header() {
                             <Link
                               href={link.href}
                               onClick={() => setIsProductsOpen(false)}
-                              className="block px-4 py-2.5 text-sm rounded-[10px] text-slate-600 dark:text-slate-300 hover:bg-sage-50/50 dark:hover:bg-white/[0.07] hover:text-sage-600 dark:hover:text-sage-400 transition-[background] duration-200"
+                              className="relative block px-4 py-2.5 text-sm rounded-lg text-white/[0.85] hover:text-white transition-colors duration-200"
+                              style={{
+                                letterSpacing: "0.3px",
+                              }}
                             >
-                              {link.label}
+                              <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#00c853] rounded-l-lg opacity-0 hover:opacity-100 transition-opacity duration-200" />
+                              <span className="relative z-10">{link.label}</span>
                             </Link>
                           </motion.div>
                         ))}
@@ -222,7 +350,7 @@ export default function Header() {
               <motion.div key={link.href} variants={navItemVariants}>
                 <Link
                   href={link.href}
-                  className="relative text-sm font-medium px-3 py-2 rounded-xl transition-all duration-300 text-slate-300 hover:text-sage-400 hover:bg-white/[0.07]"
+                  className="relative text-sm font-medium px-3 py-2 rounded-xl transition-all duration-300 text-slate-300 hover:text-[#00c853] hover:bg-white/[0.07]"
                 >
                   {link.label}
                 </Link>
@@ -242,16 +370,15 @@ export default function Header() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               transition={{ type: "spring", stiffness: 400, damping: 18 }}
-              className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-[9999px] shadow-liquid transition-colors duration-300"
+              className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white text-xs sm:text-sm font-medium px-4 sm:px-5 py-2 rounded-2xl shadow-liquid transition-colors duration-300"
               style={{ position: "relative", overflow: "hidden" }}
             >
-              {/* Liquid fill sweep */}
               <motion.span
                 style={{
                   position: "absolute",
                   inset: 0,
                   background: "rgba(255,255,255,0.12)",
-                  borderRadius: "9999px",
+                  borderRadius: "2xl",
                   originX: 0,
                   scaleX: consultHovered ? 1 : 0,
                 }}
@@ -259,7 +386,7 @@ export default function Header() {
                 animate={{ scaleX: consultHovered ? 1 : 0 }}
                 transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               />
-              <Phone size={14} style={{ position: "relative", zIndex: 1 }} />
+              <Phone size={12} style={{ position: "relative", zIndex: 1 }} />
               <span className="hidden md:inline" style={{ position: "relative", zIndex: 1 }}>Consult Now</span>
             </motion.a>
 
@@ -294,36 +421,71 @@ export default function Header() {
         </motion.div>
       </header>
 
-      {/* ── Mobile Menu Panel ── */}
+      {/* Mobile Menu Panel */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
             ref={mobilePanelRef}
             initial={{ opacity: 0, y: -16, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -16, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -16, scale: 0.97, filter: "blur(4px)" }}
             transition={{ duration: 0.35, ease }}
-            className="fixed top-[86px] left-1/2 -translate-x-1/2 w-[90vw] z-[9999] lg:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl rounded-[20px] p-4 shadow-[0_12px_48px_rgba(0,0,0,0.5)] border border-sage-200/50 dark:border-white/[0.06]"
+            className="fixed top-[86px] left-1/2 -translate-x-1/2 max-w-[85vw] w-[85vw] z-[9999] lg:hidden rounded-[24px] p-5 liquid-pour-animation"
+            style={{
+              background: "rgba(10, 20, 30, 0.75)",
+              backdropFilter: "blur(20px)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: "0 12px 48px rgba(0, 200, 83, 0.15), 0 0 60px rgba(0, 200, 83, 0.1)",
+            }}
           >
+            {/* Liquid blob background */}
+            <div
+              className="absolute inset-0 overflow-hidden rounded-[24px] pointer-events-none"
+              style={{ zIndex: 0 }}
+            >
+              <div
+                className="liquid-blob-animation absolute"
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  background: "radial-gradient(circle, rgba(0, 200, 83, 0.12) 0%, rgba(0, 200, 83, 0.04) 50%, transparent 70%)",
+                  top: "-40px",
+                  right: "-30px",
+                }}
+              />
+              <div
+                className="liquid-blob-animation absolute"
+                style={{
+                  width: "160px",
+                  height: "160px",
+                  background: "radial-gradient(circle, rgba(0, 200, 83, 0.08) 0%, rgba(0, 200, 83, 0.02) 50%, transparent 70%)",
+                  bottom: "-30px",
+                  left: "-20px",
+                  animationDelay: "-6s",
+                }}
+              />
+            </div>
+
             <motion.nav
               variants={mobileContainerVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="flex flex-col"
+              className="relative z-10 flex flex-col"
             >
               {/* Products accordion */}
               <motion.div variants={mobileItemVariants}>
                 <button
                   onClick={() => setIsMobileProductsOpen((v) => !v)}
-                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium rounded-xl text-slate-700 dark:text-slate-200 hover:bg-sage-50/50 dark:hover:bg-white/[0.07] transition-colors"
+                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium rounded-xl text-white/[0.9] hover:bg-white/[0.07] transition-colors"
+                  style={{ letterSpacing: "0.3px" }}
                 >
                   Products
                   <motion.div
                     animate={{ rotate: isMobileProductsOpen ? 180 : 0 }}
                     transition={{ duration: 0.3, ease }}
                   >
-                    <ChevronDown size={16} />
+                    <ChevronDown size={16} className="text-white/[0.7]" />
                   </motion.div>
                 </button>
 
@@ -336,16 +498,27 @@ export default function Header() {
                       transition={{ duration: 0.4, ease }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-4 border-l-2 border-white/[0.15] ml-4 space-y-0.5">
-                        {productLinks.map((link) => (
-                          <Link
+                      <div
+                        className="pl-4 border-l-2 border-[#00c853] ml-4 max-h-[60vh] overflow-y-auto scrollbar-dark py-2"
+                      >
+                        {productLinks.map((link, i) => (
+                          <motion.div
                             key={link.href}
-                            href={link.href}
-                            onClick={closeMobile}
-                            className="block px-4 py-2.5 text-sm rounded-[10px] text-slate-600 dark:text-slate-300 hover:bg-sage-50/50 dark:hover:bg-white/[0.07] hover:text-sage-600 dark:hover:text-sage-400 transition-[background] duration-200"
+                            custom={i}
+                            initial="hidden"
+                            animate="visible"
+                            variants={productListItemVariants}
                           >
-                            {link.label}
-                          </Link>
+                            <Link
+                              href={link.href}
+                              onClick={closeMobile}
+                              className="relative block px-4 py-2.5 text-sm rounded-lg text-white/[0.85] hover:text-white transition-colors duration-200 mb-1"
+                              style={{ letterSpacing: "0.3px" }}
+                            >
+                              <span className="absolute left-0 top-0 bottom-0 w-1 bg-[#00c853] rounded-l-lg opacity-0 hover:opacity-100 transition-opacity duration-200" />
+                              <span className="relative z-10">{link.label}</span>
+                            </Link>
+                          </motion.div>
                         ))}
                       </div>
                     </motion.div>
@@ -359,7 +532,8 @@ export default function Header() {
                   <Link
                     href={link.href}
                     onClick={closeMobile}
-                    className="block px-4 py-3 text-sm font-medium rounded-xl text-slate-700 dark:text-slate-200 hover:bg-sage-50/50 dark:hover:bg-white/[0.07] transition-colors"
+                    className="block px-4 py-3 text-sm font-medium rounded-xl text-white/[0.9] hover:bg-white/[0.07] transition-colors"
+                    style={{ letterSpacing: "0.3px" }}
                   >
                     {link.label}
                   </Link>
@@ -375,9 +549,12 @@ export default function Header() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={closeMobile}
-                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#128C7E] hover:to-[#25D366] text-white text-sm font-bold px-5 py-4 rounded-2xl shadow-liquid transition-all duration-300"
+                  className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white text-sm font-medium px-5 py-3 rounded-2xl shadow-lg"
+                  style={{
+                    boxShadow: "0 8px 24px rgba(0, 200, 83, 0.25)",
+                  }}
                 >
-                  <Phone size={16} />
+                  <Phone size={14} />
                   Consult Now
                 </motion.a>
               </motion.div>

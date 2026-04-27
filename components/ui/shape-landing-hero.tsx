@@ -210,17 +210,17 @@ function HeroGeometric({
                                 href={whatsappLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold rounded-full transition-all duration-300 shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-medium rounded-full transition-all duration-300 shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50"
                             >
-                                <MessageCircle size={18} />
+                                <MessageCircle size={16} />
                                 Free WhatsApp Consultation
                             </a>
                             <a
                                 href={productsLink}
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/20 transition-all duration-300 backdrop-blur-sm"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-full border border-white/20 transition-all duration-300 backdrop-blur-sm"
                             >
                                 View All Products
-                                <ArrowRight size={16} />
+                                <ArrowRight size={14} />
                             </a>
                         </motion.div>
                     )}

@@ -19,7 +19,7 @@ export default function PricingCard({ pack, onOrder }: Props) {
       }`}
     >
       {pack.recommended && (
-        <div className="bg-gradient-to-r from-primary to-primary-dark text-white text-xs font-bold px-3 py-2 text-center uppercase tracking-wider flex items-center justify-center gap-1.5">
+        <div className="bg-green-500/10 border-b border-green-500/20 text-green-600 dark:text-green-400 text-xs font-bold px-3 py-2 text-center uppercase tracking-wider flex items-center justify-center gap-1.5">
           <Star className="w-3.5 h-3.5 fill-current" /> Most Popular
         </div>
       )}
@@ -33,10 +33,10 @@ export default function PricingCard({ pack, onOrder }: Props) {
         {/* Price */}
         <div className="text-center mb-4">
           <div className="flex items-baseline justify-center gap-1">
-            <span className="text-3xl font-extrabold text-slate-900 dark:text-white">₦{pack.salePrice.toLocaleString()}</span>
+            <span className="text-3xl font-extrabold text-slate-900 dark:text-white">N{pack.salePrice.toLocaleString()}</span>
           </div>
           <div className="flex items-center justify-center gap-2 mt-1">
-            <span className="text-sm text-slate-400 dark:text-slate-500 line-through">₦{pack.originalPrice.toLocaleString()}</span>
+            <span className="text-sm text-slate-400 dark:text-slate-500 line-through">N{pack.originalPrice.toLocaleString()}</span>
             <span className="text-xs font-bold text-primary dark:text-primary-light bg-primary-50 dark:bg-primary/10 border border-primary/10 px-2 py-0.5 rounded-full">
               -{savingsPct}%
             </span>
@@ -74,14 +74,10 @@ export default function PricingCard({ pack, onOrder }: Props) {
 
         <button
           onClick={onOrder}
-          className={`mt-auto ${
-            pack.recommended
-              ? "btn-gold h-auto py-3 shadow-gold shadow-accent/20"
-              : "btn-primary h-auto py-3 shadow-glass shadow-primary/20"
-          }`}
+          className="flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 font-bold rounded-full w-full py-3.5 px-6 transition-all duration-300 shadow-glass"
         >
-          <MessageCircle size={14} />
-          Order Now
+          <MessageCircle size={20} className="text-white flex-shrink-0" />
+          <span className="text-white">Order Now</span>
         </button>
       </div>
     </div>

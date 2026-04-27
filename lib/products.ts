@@ -55,8 +55,6 @@ export const products: Product[] = [
     images: [
       "/images/products/ed/ed-1.png",
       "/images/products/ed/ed-2.png",
-      "/images/products/ed/ed-3.png",
-      "/images/products/ed/ed-7.png",
     ],
     educationalIntro: "Erectile Dysfunction (ED) is a condition that crushes the confidence, ego, and happiness of a grown man — and it affects millions of Nigerian men across all age groups. Whether it's weak erections, premature ejaculation (finishing in under 1 minute), or complete loss of sexual desire, ED can silently destroy relationships and self-esteem. The good news? It doesn't have to be permanent.",
     rootCauses: [
@@ -133,9 +131,9 @@ export const products: Product[] = [
     color: "blue",
     icon: "ShieldCheck",
     images: [
-      "/categorized_images/Prostatitis/products/A06_PROSTBETA_.png",
-      "/categorized_images/Prostatitis/products/A02_LONGZIT.png",
-      "/categorized_images/Prostatitis/products/A12_GHT_VIGOR_MAX_SOFTGEL.png",
+      "/product_images/PROSBETA.png",
+      "/product_images/LONGZIT.png",
+      "/product_images/VIDOR-MAX.png",
     ],
     educationalIntro: "Enlarged Prostate (BPH — Benign Prostatic Hyperplasia) is one of the most common health problems affecting men over 40 in Nigeria. It causes the prostate gland to swell and press against the urethra, leading to painful urination, weak urine stream, and frequent nighttime bathroom trips. Left untreated, it can lead to kidney damage, urinary tract infections, and even the need for surgery. But surgery is NOT your only option.",
     rootCauses: [
@@ -210,9 +208,9 @@ export const products: Product[] = [
     color: "orange",
     icon: "Droplet",
     images: [
-      "/categorized_images/Diabetes Type 2/products/A14_DIALESE.png",
-      "/categorized_images/Diabetes Type 2/products/A02_LONGZIT.png",
-      "/categorized_images/Diabetes Type 2/products/A11_GHT_MYCO_BALANCE_SOFTGEL.png",
+      "/product_images/DIALESE.png",
+      "/product_images/LONGZIT.png",
+      "/product_images/MYCO-BALANCE.png",
     ],
     educationalIntro: "Diabetes is a chronic, often debilitating and sometimes fatal disease where the body either cannot produce insulin or cannot properly use the insulin it produces. Insulin controls the amount of glucose (sugar) in the blood. When blood sugar rises beyond normal, it can damage blood vessels, organs, and nerves — silently destroying your health even when you don't feel sick. Blood vessels are to the body what fuel hoses are to a vehicle. Imagine them being damaged.",
     rootCauses: [
@@ -283,11 +281,8 @@ export const products: Product[] = [
     color: "teal",
     icon: "ShieldAlert",
     images: [
-      "/images/products/infection/infection-1.png",
-      "/images/products/infection/infection-2.png",
-      "/images/products/infection/infection-3.png",
-      "/images/products/infection/infection-4.png",
-      "/images/products/infection/infection-5.png",
+      "/product_images/B-CLEAR.png",
+      "/product_images/B04_GARLIC_OIL_SOFTGEL.png",
     ],
     educationalIntro: "Stop wasting money on antibiotics that don't work. Most infections keep coming back because you're treating them the wrong way. Many people struggle with infections that never fully go away, no matter how many times they're treated. That's because not all infections are caused by bacteria — and antibiotics only work on bacterial infections. Years of self-medication, overuse, and abuse of antibiotics have led to drug-resistant infections that no longer respond to conventional treatments.",
     rootCauses: [
@@ -364,9 +359,8 @@ export const products: Product[] = [
     color: "purple",
     icon: "Bone",
     images: [
-      "/images/products/joint-pain/joint-1.png",
-      "/images/products/joint-pain/joint-2.png",
-      "/images/products/joint-pain/joint-3.png",
+      "/product_images/SPABUCTA_SPRAY.png",
+      "/product_images/PANICEPT.png",
     ],
     educationalIntro: "If you're tired of the constant pain, stiffness, and discomfort — and you're searching for a natural, safe, and fast-working solution with zero side effects — then this could be the most important message you'll come across today. Life can be very unbearable and frustrating when you cannot carry out your daily activities without feeling pain. Whether it's climbing stairs, walking to the gate, or simply getting out of bed — joint pain, arthritis, and rheumatism can turn the simplest tasks into punishment.",
     rootCauses: [
@@ -441,12 +435,9 @@ export const products: Product[] = [
     color: "red",
     icon: "Heart",
     images: [
-      "/categorized_images/Hypotension - Hypertension/products/A13_HYPERFREE.png",
-      "/categorized_images/Hypotension - Hypertension/products/A05_CAERITE.png",
-      "/categorized_images/Hypotension - Hypertension/products/A09_GHT_GINSENG___ROYAL_JELLY_SOFTGEL.png",
-      "/categorized_images/Hypotension - Hypertension/products/A10_GHT_GANODERMA_SOFTGEL__REISHI_3_IN_1_.png",
-      "/categorized_images/Hypotension - Hypertension/products/A02_LONGZIT.png",
-      "/categorized_images/Hypotension - Hypertension/products/A07_B_CLEAR.png",
+      "/product_images/A13_HYPERFREE.png",
+      "/product_images/CAERITE.png",
+      "/product_images/B-CLEAR.png",
     ],
     educationalIntro: "High blood pressure, often called the \"Silent Killer,\" affects millions of people without warning. Many don't even know they have it until it becomes life-threatening — causing strokes, heart attacks, kidney failure, and blindness. The good news is that lowering your blood pressure naturally is not only possible — it's simpler than you might think. With the right natural approach, you can protect your heart and restore your health.",
     rootCauses: [
@@ -519,8 +510,8 @@ export const products: Product[] = [
     color: "emerald",
     icon: "Leaf",
     images: [
-      "/categorized_images/Ulcer/products/A08_STO_CARE.png",
-      "/categorized_images/Ulcer/products/B04_GARLIC_OIL_SOFTGEL.png",
+      "/product_images/STO_CARE.png",
+      "/product_images/B04_GARLIC_OIL_SOFTGEL.png",
     ],
     educationalIntro: "Stomach ulcers are painful sores in the stomach lining that can make eating and daily life a nightmare. Often caused by H. pylori bacteria or long-term use of anti-inflammatory drugs, ulcers can lead to severe complications if left untreated. Our natural approach focuses on eliminating the root cause and promoting the regeneration of the stomach lining.",
     rootCauses: [
@@ -576,9 +567,9 @@ export const products: Product[] = [
     color: "indigo",
     icon: "Shield",
     images: [
-      "/categorized_images/Cancer/products/A07_B_CLEAR.png",
-      "/categorized_images/Cancer/products/A11_GHT_MYCO_BALANCE_SOFTGEL.png",
-      "/categorized_images/Cancer/products/B04_GARLIC_OIL_SOFTGEL.png",
+      "/product_images/B-CLEAR.png",
+      "/product_images/B04_GARLIC_OIL_SOFTGEL.png",
+      "/product_images/MYCO-BALANCE.png",
     ],
     educationalIntro: "Cancer occurs when abnormal cells grow uncontrollably, damaging healthy tissue. While conventional treatments are often necessary, they weaken the immune system. Natural herbal support boosts immunity, reduces inflammation, and helps the body fight back — especially during and after conventional treatment.",
     rootCauses: [
@@ -647,10 +638,9 @@ export const products: Product[] = [
     color: "pink",
     icon: "Heart",
     images: [
-      "/categorized_images/Female Infertility/products/A03_FEMALE_CARE.png",
-      "/categorized_images/Female Infertility/products/A02_LONGZIT.png",
-      "/categorized_images/Female Infertility/products/A07_B_CLEAR.png",
-      "/categorized_images/Female Infertility/products/A10_GHT_GANODERMA_SOFTGEL__REISHI_3_IN_1_.png",
+      "/product_images/LONGZIT.png",
+      "/product_images/FEMALE_CARE.png",
+      "/product_images/GANODERMA_REISHI_3_IN_1.png",
     ],
     educationalIntro: "Female infertility affects millions of women across Nigeria. It can be devastating — causing emotional distress, relationship strain, and social stigma. The causes range from hormonal imbalances and ovulation disorders to blocked fallopian tubes and poor egg quality. Many causes of female infertility can be addressed naturally with the right herbal support.",
     rootCauses: [
@@ -721,8 +711,8 @@ export const products: Product[] = [
     color: "amber",
     icon: "Droplet",
     images: [
-      "/categorized_images/Hemorrhoid (Pile)/products/A10_GHT_GANODERMA_SOFTGEL__REISHI_3_IN_1_.png",
-      "/categorized_images/Hemorrhoid (Pile)/products/T01_CONSTIFREE_TEA.png",
+      "/product_images/GANODERMA_REISHI_3_IN_1.png",
+      "/product_images/CONSTIFREE.png",
     ],
     educationalIntro: "Hemorrhoids (piles) are swollen veins in the rectum and anus that cause pain, bleeding, itching, and extreme discomfort during bowel movements. They affect millions of Nigerians, especially adults over 30. The main cause is chronic constipation and straining. Left untreated, they can worsen, leading to thrombosis, severe bleeding, and the need for painful surgery. But surgery is NOT your only option.",
     rootCauses: [
@@ -786,12 +776,9 @@ export const products: Product[] = [
     color: "yellow",
     icon: "AlertTriangle",
     images: [
-      "/categorized_images/Hepatitis/products/A07_B_CLEAR.png",
-      "/categorized_images/Hepatitis/products/A08_STO_CARE.png",
-      "/categorized_images/Hepatitis/products/A10_GHT_GANODERMA_SOFTGEL__REISHI_3_IN_1_.png",
-      "/categorized_images/Hepatitis/products/A11_GHT_MYCO_BALANCE_SOFTGEL.png",
-      "/categorized_images/Hepatitis/products/A17_LIVITIES_TABLET.png",
-      "/categorized_images/Hepatitis/products/T02_I_DETOX_TEA.png",
+      "/product_images/B-CLEAR.png",
+      "/product_images/I-DETOX_TEA.png",
+      "/product_images/LIVITIES.png",
     ],
     educationalIntro: "Hepatitis is an inflammation of the liver, most commonly caused by viral infections (Hepatitis B and C). It can lead to liver cirrhosis, liver failure, and even liver cancer if left untreated. In Nigeria, Hepatitis B is particularly prevalent, with millions of carriers unaware of their status. The virus silently damages the liver over years, often showing no symptoms until significant damage has occurred.",
     rootCauses: [
@@ -860,12 +847,9 @@ export const products: Product[] = [
     color: "amber",
     icon: "AlertCircle",
     images: [
-      "/categorized_images/Liver Disease/products/A07_B_CLEAR.png",
-      "/categorized_images/Liver Disease/products/A08_STO_CARE.png",
-      "/categorized_images/Liver Disease/products/A11_GHT_MYCO_BALANCE_SOFTGEL.png",
-      "/categorized_images/Liver Disease/products/A17_LIVITIES_TABLET.png",
-      "/categorized_images/Liver Disease/products/B04_GARLIC_OIL_SOFTGEL.png",
-      "/categorized_images/Liver Disease/products/T02_I_DETOX_TEA.png",
+      "/product_images/B-CLEAR.png",
+      "/product_images/MYCO-BALANCE.png",
+      "/product_images/LIVITIES.png",
     ],
     educationalIntro: "Liver disease encompasses a range of conditions including fatty liver, cirrhosis, and liver inflammation. The liver is your body's primary detoxification organ — when it's damaged, toxins build up and your entire health deteriorates. Fatty liver disease is increasingly common in Nigeria due to poor diet and lifestyle. The good news is that the liver has an incredible ability to regenerate — and with the right natural support, significant recovery is possible.",
     rootCauses: [
@@ -934,8 +918,8 @@ export const products: Product[] = [
     color: "red",
     icon: "Activity",
     images: [
-      "/categorized_images/Stroke/products/A02_LONGZIT.png",
-      "/categorized_images/Stroke/products/A09_GHT_GINSENG___ROYAL_JELLY_SOFTGEL.png",
+      "/product_images/LONGZIT.png",
+      "/product_images/GINSENG_&_ROYAL_JELLY.png",
     ],
     educationalIntro: "A stroke occurs when blood flow to part of the brain is interrupted, causing brain cells to die. It is one of the leading causes of death and disability in Nigeria. Stroke survivors often face paralysis, speech difficulties, memory loss, and a long recovery process. Prevention is critical — and for those recovering, natural support can significantly improve outcomes by promoting blood circulation, nerve repair, and cardiovascular health.",
     rootCauses: [

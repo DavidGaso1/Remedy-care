@@ -49,9 +49,9 @@ export default function LiquidStatCard({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      whileHover={{ y: -5, scale: 1.02 }}
+      whileHover={{ y: -4, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-sage-500/30 transition-all duration-300 overflow-hidden"
+      className="group relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:shadow-[0_8px_32px_rgba(34,197,94,0.1)] hover:border-green-500/30 transition-all duration-300 overflow-hidden"
     >
       {/* Liquid Background */}
       <motion.div
