@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
 import { Sparkles } from "lucide-react";
 import TrustBadges from "@/components/TrustBadges";
 import Testimonials from "@/components/Testimonials";

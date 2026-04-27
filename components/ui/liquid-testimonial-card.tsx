@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 interface LiquidTestimonialCardProps {
   name: string;
@@ -95,7 +94,7 @@ export default function LiquidTestimonialCard({
           whileHover={{ x: 2 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
-          "{text}"
+          &ldquo;{text}&rdquo;
         </motion.p>
 
         {/* Author */}

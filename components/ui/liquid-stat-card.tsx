@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Heart, Star, Sparkles, CheckCircle, LucideIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
-
 const iconMap: Record<string, LucideIcon> = {
   Heart,
   Star,

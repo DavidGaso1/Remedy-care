@@ -16,7 +16,7 @@ interface LiquidCTAProps {
 export default function LiquidCTA({
   badge = "Free Consultation Available Now",
   title = "Ready to Start Your Healing Journey?",
-  description = "Get a free consultation on WhatsApp. We'll recommend the right product for your condition.",
+  description = "Get a free consultation on WhatsApp. We&apos;ll recommend the right product for your condition.",
   whatsappLink = "#",
   contactInfo = "08065648442 | 08137383428 | rahinaaliyualiyu@gmail.com",
   className,
@@ -139,7 +139,7 @@ export default function LiquidCTA({
           className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sage-500 to-muted-blue-500 hover:from-sage-600 hover:to-muted-blue-600 text-white font-medium px-6 py-3 rounded-2xl shadow-liquid hover:shadow-liquid-hover transition-all duration-300"
         >
           <MessageCircle size={18} />
-          Chat on WhatsApp — It's Free
+          Chat on WhatsApp — It&apos;s Free
           <ArrowRight size={14} />
         </motion.a>
 

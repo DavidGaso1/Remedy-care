@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { CheckCircle, MessageCircle, AlertCircle, Sparkles, AlertTriangle, BookOpen, Zap, X, Activity, ShieldCheck, Droplet, ShieldAlert, Bone, Heart, Leaf, Shield } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { MessageCircle, AlertCircle, AlertTriangle, Activity, ShieldCheck, Droplet, ShieldAlert, Bone, Heart, Leaf, Shield } from "lucide-react";
 
 interface LiquidProductHeroProps {
   slug: string;
@@ -18,7 +16,6 @@ export default function LiquidProductHero({
   heroSubheadline,
   onOrderClick,
 }: LiquidProductHeroProps) {
-  const { useScroll, useTransform } = require("framer-motion");
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0.8]);

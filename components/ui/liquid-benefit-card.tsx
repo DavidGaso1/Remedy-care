@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { CheckCircle } from "lucide-react";
 
 interface LiquidBenefitCardProps {
   title: string;

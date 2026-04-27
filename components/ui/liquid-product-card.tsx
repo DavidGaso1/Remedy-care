@@ -43,8 +43,8 @@ interface LiquidProductCardProps {
   name: string;
   tagline: string;
   desc: string;
-  color: string;
-  bgGlow: string;
+  color?: string;
+  bgGlow?: string;
   startPrice: string;
   image: string;
   index?: number;
@@ -57,8 +57,6 @@ export default function LiquidProductCard({
   name,
   tagline,
   desc,
-  color,
-  bgGlow,
   startPrice,
   image,
   index = 0,
