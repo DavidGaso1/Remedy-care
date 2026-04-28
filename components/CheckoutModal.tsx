@@ -78,16 +78,14 @@ export default function CheckoutModal({
         submittedAt: new Date().toISOString(),
       };
 
-      const res = await fetch("/api/order", {
+      const res = await fetch("https://n8n.simeonsamari.com/webhook/Remedy_Care", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(webhookPayload),
       });
 
-      const result = await res.json();
-
-      if (!res.ok || !result.success) {
-        throw new Error(result.message || "Failed to process order.");
+      if (!res.ok) {
+        throw new Error("Failed to process order. Please try again.");
       }
 
       setSubmitted(true);
