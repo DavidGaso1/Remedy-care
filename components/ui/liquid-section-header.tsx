@@ -1,4 +1,6 @@
 "use client";
+import { clsx, type ClassValue } from "clsx";
+const cn = (...inputs: ClassValue[]) => clsx(inputs);
 
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
@@ -92,3 +94,4 @@ export default function LiquidSectionHeader({
     </div>
   );
 }
+

@@ -1,4 +1,6 @@
 "use client";
+import { clsx, type ClassValue } from "clsx";
+const cn = (...inputs: ClassValue[]) => clsx(inputs);
 
 import { motion } from "framer-motion";
 import { Leaf, Shield, Truck, CreditCard, LucideIcon } from "lucide-react";
@@ -114,3 +116,4 @@ export default function LiquidWhyUsCard({
     </motion.div>
   );
 }
+

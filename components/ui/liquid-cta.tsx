@@ -1,4 +1,6 @@
 "use client";
+import { clsx, type ClassValue } from "clsx";
+const cn = (...inputs: ClassValue[]) => clsx(inputs);
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MessageCircle, ArrowRight } from "lucide-react";
@@ -158,3 +160,4 @@ export default function LiquidCTA({
     </motion.section>
   );
 }
+

@@ -1,4 +1,6 @@
 "use client";
+import { clsx, type ClassValue } from "clsx";
+const cn = (...inputs: ClassValue[]) => clsx(inputs);
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -97,3 +99,4 @@ export default function LiquidFAQ({ items }: LiquidFAQProps) {
     </div>
   );
 }
+

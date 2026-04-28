@@ -1,4 +1,6 @@
 "use client";
+import { clsx, type ClassValue } from "clsx";
+const cn = (...inputs: ClassValue[]) => clsx(inputs);
 
 import { motion } from "framer-motion";
 import { Check, Sparkles, ArrowRight } from "lucide-react";
@@ -195,3 +197,4 @@ export default function LiquidPricingCard({
     </motion.div>
   );
 }
+
