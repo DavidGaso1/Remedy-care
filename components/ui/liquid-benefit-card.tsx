@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
-import { clsx, type ClassValue } from "clsx";
+import { cn } from "@/lib/utils";
 
-const cn = (...inputs: ClassValue[]) => clsx(inputs);
 
 interface LiquidBenefitCardProps {
   title: string;
@@ -104,3 +103,4 @@ export default function LiquidBenefitCard({
     </motion.div>
   );
 }
+
